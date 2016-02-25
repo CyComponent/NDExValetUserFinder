@@ -2,12 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './state/store'
+require("./style/app.scss")
 
-import EmptyContainer from './container/empty_container'
+import NetworkFinder from './container/network_finder'
 
 ReactDOM.render(
   <Provider store={store()}>
-    <EmptyContainer/>
+    <NetworkFinder/>
   </Provider>,
   document.getElementById('frame')
 )

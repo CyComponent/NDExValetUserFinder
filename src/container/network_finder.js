@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import EmptyComponent from '../component/empty_component'
+import NetworkFinder from '../component/network_finder'
 
 function mapStateToProps(state) {
   return {}
@@ -12,4 +12,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(EmptyComponent)
+)(NetworkFinder)
