@@ -2,7 +2,10 @@ import { connect } from 'react-redux'
 import NetworkFinder from '../component/network_finder'
 
 function mapStateToProps(state) {
-  return {}
+  return {
+    networkLists: state.networkLists,
+    networkFinder: state.networkFinder
+  }
 }
 
 function mapDispatchToProps(dispatch) {
