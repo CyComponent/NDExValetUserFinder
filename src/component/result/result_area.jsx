@@ -3,11 +3,16 @@ import Tabs from 'material-ui/lib/tabs/tabs'
 import Tab from 'material-ui/lib/tabs/tab'
 
 import VizToolbar from './viz_toolbar'
-import Grid from './viz/grid'
+import List from './viz/list'
 
 export default class ResultArea extends React.Component {
 
-  constructor(props) {super(props)}
+  constructor(props) {
+    super(props)
+    this.state = {
+      index: 0
+    }
+  }
 
   render() {
     const style = {
@@ -15,25 +20,19 @@ export default class ResultArea extends React.Component {
       width: "55%",
       float: "right"
     }
+    var tabs = []
+    for (var listName in this.props.networkLists) {
+      tabs.push(<Tab label={listName} key={listName}>
+                  <VizToolbar/>
+                  <List/>
+                </Tab>)
+    }
     return (
-        <div style={style}>
+      <div style={style}>
         <Tabs>
-          <Tab label="List One">
-            <VizToolbar/>
-            <Grid/>
-          </Tab>
-          <Tab label="List Two">
-          </Tab>
-          <Tab label="List Three">
-          </Tab>
-          <Tab label="List Four">
-          </Tab>
-          <Tab label="List Five">
-          </Tab>
-          <Tab label="List Six">
-          </Tab>
+          {tabs}
         </Tabs>
-        </div>
+      </div>
     )
   }
 

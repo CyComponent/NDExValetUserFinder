@@ -10,6 +10,7 @@ export default class NetworkFinder extends React.Component {
   constructor(props) {super(props)}
 
   render() {
+    console.log(this)
     const style = {
       height: 700,
       width: "90%"
@@ -18,7 +19,7 @@ export default class NetworkFinder extends React.Component {
       <Paper style={style} z={3}>
         <TopBar/>
         <SearchArea/>
-        <ResultArea/>
+        <ResultArea networkLists={this.props.networkLists}/>
       </Paper>
     )
   }
