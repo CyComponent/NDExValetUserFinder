@@ -18,8 +18,8 @@ export default class NetworkFinder extends React.Component {
     return (
       <Paper style={style} z={3}>
         <TopBar/>
-        <SearchArea/>
-        <ResultArea networkLists={this.props.networkLists}/>
+        <SearchArea updateQuery={this.props.updateQuery} query={this.props.query}/>
+        <ResultArea networkLists={this.props.networkLists} vizSwitch={this.props.vizSwitch} viz={this.props.viz}/>
       </Paper>
     )
   }
