@@ -4,6 +4,12 @@ export default class SearchBox extends React.Component {
 
   constructor(props) {super(props)}
 
+  handleChange(event) {
+    console.log(this)
+    console.log(event)
+    this.props.updateQuery(event.target.value)
+  }
+
   render() {
     const style = {
       margin: '2%',
@@ -13,10 +19,10 @@ export default class SearchBox extends React.Component {
       resize: 'none',
       border: 0,
       fontSize: 20,
-      overflowY: 'scroll'
+      overflowY: 'auto'
     }
     return (
-        <textarea style={style}/>
+        <textarea style={style} value={this.props.query} onChange={this.handleChange.bind(this)}/>
     )
   }
 
