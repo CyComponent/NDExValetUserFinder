@@ -15,15 +15,19 @@ export default class ResultArea extends React.Component {
     }
   }
 
-  getViz(viz) {
+  getViz(viz, networks) {
     console.log("Viz was " + viz)
+    console.log("networks was")
+    console.log(networks)
     switch(viz) {
       case "list":
-        return <List/>
+        return <List networks={networks}/>
+      case "stream":
+        return <Grid networks={networks}/>
       case "grid":
-        return <Grid/>
+        return <Grid networks={networks}/>
       default:
-        return <List/>
+        return <List networks={networks}/>
     }
   }
 
@@ -38,7 +42,7 @@ export default class ResultArea extends React.Component {
     for (var listName in this.props.networkLists) {
       tabs.push(<Tab label={listName} key={listName}>
                   <VizToolbar vizSwitch={this.props.vizSwitch}/>
-                  {viz}
+                  {this.getViz(this.props.viz, this.props.networkLists[listName])}
                 </Tab>)
     }
     return (

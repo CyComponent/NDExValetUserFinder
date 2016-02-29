@@ -19,7 +19,7 @@ export default class List extends React.Component {
     const table = {
       overflowY: 'auto'
     }
-    const tiles = [1,2,3,4,5]
+    var tiles = this.props.networks
     return (
      <div style={root}>
        <Table multiSelectable={true} style={table}>

@@ -1,8 +1,10 @@
 const defaultNetworkLists = {
-  test2: [1,2,3,4,5,6,7,8],
-  test3: [1,2,3,4,5,6,7,8],
-  test4: [1,2,3,4,5,6,7,8]
-
+  Search: [],
+  Popular: [1,2,3,4,5,6,7,8],
+  Recent: [1,2,3,4,5,6,7,8],
+  Human: [1,2,3,4,5,6,7,8],
+  Mouse: [1,2,3,4,5,6,7,8],
+  Marine: [1,2,3,4,5,6,7,8]
 }
 
 export default function networkLists(state = defaultNetworkLists, action) {

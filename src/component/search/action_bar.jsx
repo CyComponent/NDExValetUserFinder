@@ -10,11 +10,13 @@ export default class Actionbar extends React.Component {
   render() {
     return (
       <Toolbar>
+        <ToolbarGroup firstChild={true} float="left">
+          <FontIcon className="material-icons">perm_identity</FontIcon>
+          <FontIcon className="material-icons">share</FontIcon>
+        </ToolbarGroup>
         <ToolbarGroup firstChild={true} float="right">
           <FontIcon className="material-icons">file_download</FontIcon>
           <FontIcon className="material-icons">file_upload</FontIcon>
-          <FontIcon className="material-icons">perm_identity</FontIcon>
-          <FontIcon className="material-icons">share</FontIcon>
         </ToolbarGroup>
       </Toolbar>
     )

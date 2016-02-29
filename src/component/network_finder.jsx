@@ -16,7 +16,7 @@ export default class NetworkFinder extends React.Component {
       width: "90%"
     }
     return (
-      <Paper style={style} z={3}>
+      <Paper style={style} zDepth={5}>
         <TopBar/>
         <SearchArea updateQuery={this.props.updateQuery} query={this.props.query}/>
         <ResultArea networkLists={this.props.networkLists} vizSwitch={this.props.vizSwitch} viz={this.props.viz}/>

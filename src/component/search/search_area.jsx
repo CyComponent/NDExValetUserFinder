@@ -28,7 +28,7 @@ export default class SearchArea extends React.Component {
     }
     return (
         <div style={style}>
-          <Paper style={boundry} zDepth={1}>
+          <Paper style={boundry} zDepth={2}>
             <Actionbar/>
             <SearchBox query={this.props.query} updateQuery={this.props.updateQuery}/>
           </Paper>
