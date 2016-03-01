@@ -17,9 +17,9 @@ export default class NetworkFinder extends React.Component {
     }
     return (
       <Paper style={style} zDepth={5}>
-        <TopBar/>
+        <TopBar cart={this.props.cart} removeFromCart={this.props.removeFromCart}/>
         <SearchArea updateQuery={this.props.updateQuery} query={this.props.query}/>
-        <ResultArea networkLists={this.props.networkLists} vizSwitch={this.props.vizSwitch} viz={this.props.viz}/>
+        <ResultArea networkLists={this.props.networkLists} cart={this.props.cart} addToCart={this.props.addToCart} vizSwitch={this.props.vizSwitch} viz={this.props.viz}/>
       </Paper>
     )
   }

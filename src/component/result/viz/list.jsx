@@ -20,11 +20,12 @@ export default class List extends React.Component {
       overflowY: 'auto'
     }
     var tiles = this.props.networks
+    console.log(tiles)
     return (
      <div style={root}>
        <Table multiSelectable={true} style={table}>
          <TableBody>
-           {tiles.map(tile => (<TableRow><TableRowColumn>TestRow</TableRowColumn></TableRow>))}
+           {tiles.map(tile => (<TableRow><TableRowColumn>{tile.title}</TableRowColumn></TableRow>))}
          </TableBody>
        </Table>
      </div>

@@ -18,11 +18,11 @@ export default class Grid extends React.Component {
       overflowY: 'auto',
       margin: 2
     }
-    const tiles = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+    const tiles = this.props.networks
     return (
      <div style={root}>
        <GridList
-         cols={4}
+         cols={2}
          cellHeight={125}
          style={gridList}>
            {tiles.map(tile => (<GridTile style={{backgroundColor: 'grey'}}></GridTile>))}

@@ -1,10 +1,57 @@
+
+const pop = [
+  {
+    title: "Metabolism in Orcas",
+    nodes: 75793,
+    edges: 173874
+  },
+  {
+    title: "Human Throat Cancer",
+    nodes: 34011,
+    edges: 23044
+  },
+  {
+    title: "ADT Driven Subset Computation",
+    nodes: 11,
+    edges: 5
+  },
+  {
+    title: "Proteins Interacting with Melanoma Gene Products",
+    nodes: 1933,
+    edges: 97578
+  },
+  {
+    title: "Parkinson's Disease Map",
+    ndoes: 434,
+    edges: 43434
+  },
+  {
+    title: "RiceCyc v3.3",
+    nodes: 334334,
+    edges: 434
+  },
+  {
+    title: "NCID traffics to Nucleus",
+    nodes: 434334,
+    edges: 43434
+  }
+]
+
+const recent = [
+  {
+    title: "Metabolism in Orcas",
+    nodes: 75793,
+    edges: 173874
+  }
+]
+
 const defaultNetworkLists = {
   Search: [],
-  Popular: [1,2,3,4,5,6,7,8],
-  Recent: [1,2,3,4,5,6,7,8],
-  Human: [1,2,3,4,5,6,7,8],
-  Mouse: [1,2,3,4,5,6,7,8],
-  Marine: [1,2,3,4,5,6,7,8]
+  Popular: pop,
+  Recent: recent,
+  Human: pop,
+  Mouse: pop,
+  Marine: pop
 }
 
 export default function networkLists(state = defaultNetworkLists, action) {
