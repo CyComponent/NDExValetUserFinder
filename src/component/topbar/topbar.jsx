@@ -44,7 +44,7 @@ class TopBar extends React.Component {
       cartBody = "Your shopping cart is empty. Select networks to add them to the cart, then press Begin."
     } else {
       cartList = this.props.cart.map(item => (<TableRow><TableRowColumn>{item.title}</TableRowColumn></TableRow>))
-      cartBody = <TableBody>{cartList}</TableBody>
+      cartBody = <Table multiSelectable={true}><TableBody>{cartList}</TableBody></Table>
     }
     return (
       <AppBar iconElementRight={

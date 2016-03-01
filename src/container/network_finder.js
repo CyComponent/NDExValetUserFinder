@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import NetworkFinder from '../component/network_finder'
 
-import { vizSwitch, updateQuery } from '../state/reducers/network_finder_reducer'
+import { vizSwitch, updateQuery, addToCart, removeFromCart } from '../state/reducers/network_finder_reducer'
 
 function mapStateToProps(state) {
   return {

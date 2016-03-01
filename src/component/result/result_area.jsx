@@ -5,6 +5,7 @@ import Tab from 'material-ui/lib/tabs/tab'
 import VizToolbar from './viz_toolbar'
 import List from './viz/list'
 import Grid from './viz/grid'
+import Stream from './viz/stream'
 
 export default class ResultArea extends React.Component {
 
@@ -21,9 +22,9 @@ export default class ResultArea extends React.Component {
     console.log(networks)
     switch(viz) {
       case "list":
-        return <List networks={networks}/>
+        return <List networks={networks} addToCart={this.props.addToCart}/>
       case "stream":
-        return <Grid networks={networks}/>
+        return <Stream networks={networks}/>
       case "grid":
         return <Grid networks={networks}/>
       default:
