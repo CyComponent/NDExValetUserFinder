@@ -32,7 +32,11 @@ export default class Login extends React.Component {
         type="password"
         hintText="Password"
       />
-      <RaisedButton label="Login" primary={true} style={{ width: "100%" }}/>
+      <RaisedButton
+        label="Login"
+        primary={true}
+        onClick={this.props.login}
+        style={{ width: "100%" }}/>
       </div>
     )
   }

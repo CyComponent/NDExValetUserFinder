@@ -1,10 +1,11 @@
-import { VIZ_SWITCH, UPDATE_QUERY, UPDATE_USER, UPDATE_PASS, ADD_TO_CART, REMOVE_FROM_CART } from "../actions"
+import { VIZ_SWITCH, UPDATE_QUERY, UPDATE_USER, UPDATE_PASS, LOGIN, LOGOUT, ADD_TO_CART, REMOVE_FROM_CART } from "../actions"
 import { Map, Set } from 'immutable'
 
 const defaultNetworkFinderState = Map({
   query: "",
   user: "",
   pass: "",
+  logged_in: false,
   selected_viz: "list",
   selected_tab: "",
   cart: Set()
@@ -20,6 +21,10 @@ export default function networkFinder(state = defaultNetworkFinderState, action)
         return state.set('user', action.user.slice(0))
       case UPDATE_PASS:
         return state.set('pass', action.pass.slice(0))
+      case LOGIN:
+        return state.set('logged_in', true)
+      case LOGOUT:
+        return state.set('logged_in', false)
       case ADD_TO_CART:
         return state.set('cart', state.get('cart').add(action.network))
       case REMOVE_FROM_CART:
@@ -54,6 +59,18 @@ export function updatePass(pass) {
   return {
     type: UPDATE_PASS,
     pass: pass
+  }
+}
+
+export function login() {
+  return {
+    type: LOGIN
+  }
+}
+
+export function logout() {
+  return {
+    type: LOGOUT
   }
 }
 

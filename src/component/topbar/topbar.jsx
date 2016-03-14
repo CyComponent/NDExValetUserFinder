@@ -41,6 +41,36 @@ export default class TopBar extends React.Component {
     })
   }
 
+  checkLoggedIn() {
+    if (!this.props.logged_in) {
+      return (
+        <FlatButton
+          label="Login"
+          labelPosition="after"
+          onClick={this.openLogin.bind(this)}
+          icon={
+            <FontIcon className="material-icons">
+              account_circle
+            </FontIcon>
+          }
+        />
+      )
+    } else {
+      return (
+        <FlatButton
+          label={this.props.user}
+          labelPosition="after"
+          onClick={this.props.logout}
+          icon={
+            <FontIcon className="material-icons">
+              account_circle
+            </FontIcon>
+          }
+        />
+      )
+    }
+  }
+
   render() {
     const actions = [
       <FlatButton
@@ -53,6 +83,8 @@ export default class TopBar extends React.Component {
         primary={true}
       />
     ]
+    const login = this.checkLoggedIn()
+    console.log(login)
     return (
       <AppBar
         title="Network Cart"
@@ -68,16 +100,7 @@ export default class TopBar extends React.Component {
           </IconButton>
         }
         iconElementRight={
-          <FlatButton
-            label="Login"
-            labelPosition="after"
-            onClick={this.openLogin.bind(this)}
-            icon={
-              <FontIcon className="material-icons">
-                account_circle
-              </FontIcon>
-            }
-          />
+          login
         }
       >
         <Dialog
@@ -98,6 +121,7 @@ export default class TopBar extends React.Component {
           <Login
             user={this.props.user}
             pass={this.props.pass}
+            login={this.props.login}
             updateUser={this.props.updateUser}
             updatePass={this.props.updatePass}
           />

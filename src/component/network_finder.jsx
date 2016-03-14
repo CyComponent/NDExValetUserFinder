@@ -21,6 +21,9 @@ export default class NetworkFinder extends React.Component {
           cart={this.props.cart}
           user={this.props.user}
           pass={this.props.pass}
+          logged_in={this.props.logged_in}
+          login={this.props.login}
+          logout={this.props.logout}
           updateUser={this.props.updateUser}
           updatePass={this.props.updatePass}
           removeFromCart={this.props.removeFromCart}/>
