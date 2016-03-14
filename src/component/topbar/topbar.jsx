@@ -86,6 +86,7 @@ export default class TopBar extends React.Component {
           open={this.state.cart_open}
         >
           <Cart
+            removeFromCart={this.props.removeFromCart}
             cart={this.props.cart}
           />
         </Dialog>

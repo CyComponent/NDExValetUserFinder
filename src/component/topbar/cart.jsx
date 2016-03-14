@@ -12,21 +12,27 @@ export default class Cart extends React.Component {
     super(props)
   }
 
+  handleClick(item) {
+    this.props.removeFromCart(item)
+  }
+
   render() {
     var cartList, cartBody
     if (this.props.cart.length == 0) {
       cartBody = "Your shopping cart is empty. Select networks to add them to the cart, then press Begin."
     } else {
-      cartList = this.props.cart.map(item => (<TableRow><TableRowColumn>{item.title}</TableRowColumn></TableRow>))
+      cartList = this.props.cart.map(item => (<tr onClick={console.log("Hello")}>
+                                                <td>
+                                                  {item.title}
+                                                </td>
+                                              </tr>))
     }
     return (
-      <Table
-        multiSelectable={true}
-      >
-        <TableBody>
-          {cartList}
-        </TableBody>
-      </Table>
+        <table>
+          <tbody>
+            {cartList}
+          </tbody>
+        </table>
 
     )
   }
