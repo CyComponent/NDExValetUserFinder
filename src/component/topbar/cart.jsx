@@ -13,6 +13,8 @@ export default class Cart extends React.Component {
   }
 
   handleClick(item) {
+    console.log(this)
+    console.log(item)
     this.props.removeFromCart(item)
   }
 
@@ -21,7 +23,7 @@ export default class Cart extends React.Component {
     if (this.props.cart.length == 0) {
       cartBody = "Your shopping cart is empty. Select networks to add them to the cart, then press Begin."
     } else {
-      cartList = this.props.cart.map(item => (<tr onClick={console.log("Hello")}>
+      cartList = this.props.cart.map(item => (<tr onClick={this.handleClick.bind(this, item)}>
                                                 <td>
                                                   {item.title}
                                                 </td>
