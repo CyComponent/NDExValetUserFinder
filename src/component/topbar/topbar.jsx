@@ -87,7 +87,7 @@ export default class TopBar extends React.Component {
     console.log(login)
     return (
       <AppBar
-        title="Network Cart"
+        title="1 in Network Cart"
         onTitleTouchTap={this.toggleCart.bind(this)}
         iconElementLeft={
           <IconButton>

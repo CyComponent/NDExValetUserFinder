@@ -27,8 +27,17 @@ export default class NetworkFinder extends React.Component {
           updateUser={this.props.updateUser}
           updatePass={this.props.updatePass}
           removeFromCart={this.props.removeFromCart}/>
-        <SearchArea updateQuery={this.props.updateQuery} query={this.props.query}/>
-        <ResultArea networkLists={this.props.networkLists} cart={this.props.cart} addToCart={this.props.addToCart} vizSwitch={this.props.vizSwitch} viz={this.props.viz}/>
+        <SearchArea
+          updateQuery={this.props.updateQuery}
+          query={this.props.query}
+        />
+        <ResultArea
+          networkLists={this.props.networkLists}
+          cart={this.props.cart}
+          isFetching={this.props.isFetching}
+          addToCart={this.props.addToCart}
+          vizSwitch={this.props.vizSwitch}
+          viz={this.props.viz}/>
       </Paper>
     )
   }

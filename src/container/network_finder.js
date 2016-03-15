@@ -11,6 +11,7 @@ function mapStateToProps(state) {
     cart: state.networkFinder.get('cart'),
     user: state.networkFinder.get('user'),
     pass: state.networkFinder.get('pass'),
+    isFetching: state.networkFinder.get('isFetching'),
     logged_in: state.networkFinder.get('logged_in')
   }
 }

@@ -3,6 +3,7 @@ import Tabs from 'material-ui/lib/tabs/tabs'
 import Tab from 'material-ui/lib/tabs/tab'
 
 import VizToolbar from './viz_toolbar'
+import Spinner from './viz/spinner'
 import List from './viz/list'
 import Grid from './viz/grid'
 import Stream from './viz/stream'
@@ -16,10 +17,13 @@ export default class ResultArea extends React.Component {
     }
   }
 
-  getViz(viz, networks) {
-    console.log("Viz was " + viz)
-    console.log("networks was")
-    console.log(networks)
+  getViz(viz, listname, networks) {
+    console.log("Durka")
+    console.log(this.props.isFetching)
+    console.log(listname)
+    if (this.props.isFetching && (listname == "Search")) {
+      return <Spinner/>
+    }
     switch(viz) {
       case "list":
         return <List networks={networks} addToCart={this.props.addToCart}/>
@@ -43,7 +47,7 @@ export default class ResultArea extends React.Component {
     for (var listName in this.props.networkLists) {
       tabs.push(<Tab label={listName} key={listName}>
                   <VizToolbar vizSwitch={this.props.vizSwitch}/>
-                  {this.getViz(this.props.viz, this.props.networkLists[listName])}
+                  {this.getViz(this.props.viz, listName, this.props.networkLists[listName])}
                 </Tab>)
     }
     return (
