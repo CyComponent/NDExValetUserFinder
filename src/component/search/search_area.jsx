@@ -9,6 +9,11 @@ export default class SearchArea extends React.Component {
 
   constructor(props) {super(props)}
 
+  handleSearch() {
+    this.props.addResults([])
+    this.props.startSearch()
+  }
+
   render() {
     const style = {
       height: "90%",
@@ -32,7 +37,11 @@ export default class SearchArea extends React.Component {
             <Actionbar/>
             <SearchBox query={this.props.query} updateQuery={this.props.updateQuery}/>
           </Paper>
-          <RaisedButton label="Search" primary={true} style={searchButton}/>
+          <RaisedButton
+            onClick={this.handleSearch.bind(this)}
+            label="Search"
+            primary={true}
+            style={searchButton}/>
         </div>
     )
   }

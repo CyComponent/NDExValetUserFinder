@@ -7,10 +7,6 @@ export default class VizToolbar extends React.Component {
 
   constructor(props) {super(props)}
 
-  handleVizSwitch(Viz) {
-    console.log("Viz switch")
-  }
-
   render() {
     console.log(this)
     return (
@@ -24,4 +20,3 @@ export default class VizToolbar extends React.Component {
     )
   }
 }
-      //      <FontIcon className="material-icons" onTouchTap={() => { console.log(this) }}>format_align_justify</FontIcon>

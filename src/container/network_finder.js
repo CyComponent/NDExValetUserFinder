@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import NetworkFinder from '../component/network_finder'
-
-import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCart, removeFromCart } from '../state/reducers/network_finder_reducer'
+import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCart, removeFromCart, startSearch, endSearch } from '../state/reducers/network_finder_reducer'
+import { addResults } from '../state/reducers/network_lists_reducer'
 
 function mapStateToProps(state) {
   return {
@@ -11,7 +11,7 @@ function mapStateToProps(state) {
     cart: state.networkFinder.get('cart'),
     user: state.networkFinder.get('user'),
     pass: state.networkFinder.get('pass'),
-    isFetching: state.networkFinder.get('isFetching'),
+    isSearching: state.networkFinder.get('isSearching'),
     logged_in: state.networkFinder.get('logged_in')
   }
 }
@@ -25,7 +25,10 @@ function mapDispatchToProps(dispatch) {
     login: () => dispatch(login()),
     logout: () => dispatch(logout()),
     addToCart: (network) => dispatch(addToCart(network)),
-    removeFromCart: (network) => dispatch(removeFromCart(network))
+    removeFromCart: (network) => dispatch(removeFromCart(network)),
+    startSearch: () => dispatch(startSearch()),
+    endSearch: () => dispatch(endSearch()),
+    addResults: (searchResults) => dispatch(addResults(searchResults))
   }
 }
 

@@ -8,7 +8,13 @@ export default class Spinner extends React.Component {
   render() {
     return (
       <div>
-        <CircularProgress size={2}/>
+        <CircularProgress
+          size={3}
+          style={{
+            margin: '45%',
+            marginTop: '35%'
+          }}
+        />
       </div>
     )
   }

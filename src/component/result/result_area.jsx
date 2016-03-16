@@ -12,16 +12,10 @@ export default class ResultArea extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      index: 0
-    }
   }
 
   getViz(viz, listname, networks) {
-    console.log("Durka")
-    console.log(this.props.isFetching)
-    console.log(listname)
-    if (this.props.isFetching && (listname == "Search")) {
+    if (this.props.isSearching && (listname == "Search")) {
       return <Spinner/>
     }
     switch(viz) {
@@ -31,8 +25,6 @@ export default class ResultArea extends React.Component {
         return <Stream networks={networks}/>
       case "grid":
         return <Grid networks={networks}/>
-      default:
-        return <List networks={networks}/>
     }
   }
 
@@ -42,14 +34,13 @@ export default class ResultArea extends React.Component {
       width: "55%",
       float: "right"
     }
-    const viz = this.getViz(this.props.viz)
     var tabs = []
-    for (var listName in this.props.networkLists) {
-      tabs.push(<Tab label={listName} key={listName}>
-                  <VizToolbar vizSwitch={this.props.vizSwitch}/>
-                  {this.getViz(this.props.viz, listName, this.props.networkLists[listName])}
-                </Tab>)
-    }
+    this.props.networkLists.forEach((list, name) => {
+      tabs.push(<Tab label={name} key={name}>
+        <VizToolbar vizSwitch={this.props.vizSwitch}/>
+        {this.getViz(this.props.viz, name, list)}
+      </Tab>)
+    })
     return (
       <div style={style}>
         <Tabs>

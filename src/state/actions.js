@@ -1,5 +1,8 @@
 export const VIZ_SWITCH = "VIZ_SWITCH"
 export const UPDATE_QUERY = "UPDATE_QUERY"
+export const START_SEARCH = "START_SEARCH"
+export const ADD_RESULTS = "ADD_RESULTS"
+export const END_SEARCH = "END_SEARCH"
 export const UPDATE_USER = "UPDATE_USER"
 export const UPDATE_PASS = "UPDATE_PASS"
 export const LOGIN = "LOGIN"
