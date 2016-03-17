@@ -5,10 +5,7 @@ export default class SearchBox extends React.Component {
   constructor(props) {super(props)}
 
   handleChange(event) {
-    console.log(this)
-    console.log(event)
     this.props.updateQuery(event.target.value)
-    window.fetch
   }
 
   render() {

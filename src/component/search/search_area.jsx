@@ -12,6 +12,9 @@ export default class SearchArea extends React.Component {
   handleSearch() {
     this.props.addResults([])
     this.props.startSearch()
+    window.fetch('http://www.google.com', { mode: 'no-cors' }).then((R) => {
+      console.log(R)
+    })
   }
 
   render() {
