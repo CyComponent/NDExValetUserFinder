@@ -12,9 +12,18 @@ export default class SearchArea extends React.Component {
   handleSearch() {
     this.props.addResults([])
     this.props.startSearch()
-    window.fetch('http://www.google.com', { mode: 'no-cors' }).then((R) => {
-      console.log(R)
-    })
+    //window.fetch('http://54.219.139.91:8082/search?term=""', { mode: 'no-cors' }).then((R) => {
+    var URL = 'http://54.219.139.91:8081/search?term=""'
+    window.fetch('http://54.219.139.91:8081/search?term=""', {mode: 'cors', method: 'GET'}).then((R) => {
+      return R.text()
+    }).then((D) => { console.log(D) })
+    var xhr = new XMLHttpRequest()
+    xhr.onload = function() {
+      console.log(xhr.status)
+      console.log(xhr.responseText)
+    }
+    xhr.open('GET', URL)
+    xhr.send()
   }
 
   render() {

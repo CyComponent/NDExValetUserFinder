@@ -11,7 +11,7 @@ export default class List extends React.Component {
   constructor(props) {super(props)}
 
   add(network) {
-    this.props.addToCart(network)
+   console.log("Nothing") 
   }
 
   render() {
@@ -29,7 +29,7 @@ export default class List extends React.Component {
      <div style={root}>
        <Table multiSelectable={true} style={table}>
          <TableBody>
-           {tiles.map(tile => (<TableRow onCellClick={this.add(tile)}><TableRowColumn>{tile.title}</TableRowColumn></TableRow>))}
+           {tiles.map(tile => (<TableRow><TableRowColumn>{tile.title}</TableRowColumn></TableRow>))}
          </TableBody>
        </Table>
      </div>

@@ -1,17 +1,20 @@
 import React from 'react'
-import GridList from 'material-ui/lib/grid-list/grid-list';
-import GridTile from 'material-ui/lib/grid-list/grid-tile';
 import Paper from 'material-ui/lib/paper';
-import Table from 'material-ui/lib/table/table';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
+import Toolbar from 'material-ui/lib/toolbar/toolbar';
+import ToolbarGroup from 'material-ui/lib/toolbar/toolbar-group';
+import ToolbarSeparator from 'material-ui/lib/toolbar/toolbar-separator';
+import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
+import Checkbox from 'material-ui/lib/checkbox';
+import RaisedButton from 'material-ui/lib/raised-button';
+import Divider from 'material-ui/lib/divider';
 
 export default class Stream extends React.Component {
 
   constructor(props) {super(props)}
+
+  add(Network) {
+    this.props.addToCart(Network)
+  }
 
   render() {
     const root = {
@@ -25,47 +28,26 @@ export default class Stream extends React.Component {
       overflowY: 'auto',
       margin: 2
     }
-    const tiles = this.props.networks
+    const stream = this.props.networks.map((N) => (<Paper zDepth={1} style={{ width: '96%', marginTop: '10px' }}>
+                                                     <Toolbar>
+                                                       <ToolbarGroup float="left">
+                                                         <ToolbarTitle text={N.name}/>
+                                                       </ToolbarGroup>
+                                                       <ToolbarGroup float="right">
+                                                         <RaisedButton label="On NDEx" primary={true} linkButton={true} href={N.uri} style={{
+                                                           marginRight: 0
+                                                         }}/>
+                                                         <RaisedButton label="Add to Cart" onClick={this.add.bind(this, N)} primary={false} style={{
+                                                           marginRight: 0
+                                                         }}/>
+                                                       </ToolbarGroup>
+                                                     </Toolbar>
+                                                   </Paper>))
+    console.log(stream)
     return (
-     <div style={root}>
-       <Paper zDepth={1}
-         style={{
-           width: '96%',
-           marginTop: '10px'
-         }}
-       >
-         <Table>
-           <TableHeader>
-             <TableRow>
-               <TableHeaderColumn>Name</TableHeaderColumn>
-               <TableHeaderColumn>Nodes</TableHeaderColumn>
-               <TableHeaderColumn>Edges</TableHeaderColumn>
-               <TableHeaderColumn>Created</TableHeaderColumn>
-             </TableRow>
-           </TableHeader>
-          <TableBody>
-             <TableRow>
-               <TableHeaderColumn>Orca full pop chart</TableHeaderColumn>
-               <TableHeaderColumn>4344343</TableHeaderColumn>
-               <TableHeaderColumn>83332</TableHeaderColumn>
-               <TableHeaderColumn>03/18/2015</TableHeaderColumn>
-             </TableRow>
-             <TableRow>
-               <TableHeaderColumn>Small Orca Study</TableHeaderColumn>
-               <TableHeaderColumn>443</TableHeaderColumn>
-               <TableHeaderColumn>89</TableHeaderColumn>
-               <TableHeaderColumn>09/1/2015</TableHeaderColumn>
-             </TableRow>
-             <TableRow>
-               <TableHeaderColumn>Full GO Orca Genome</TableHeaderColumn>
-               <TableHeaderColumn>19048</TableHeaderColumn>
-               <TableHeaderColumn>43098</TableHeaderColumn>
-               <TableHeaderColumn>06/9/2014</TableHeaderColumn>
-             </TableRow>
-          </TableBody>
-         </Table>
-       </Paper>
-     </div>
+      <div style={root}>
+        {stream}
+      </div>
     )
   }
 

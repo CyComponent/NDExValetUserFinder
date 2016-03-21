@@ -7,7 +7,7 @@ const defaultNetworkFinderState = Map({
   user: "",
   pass: "",
   logged_in: false,
-  selected_viz: "list",
+  selected_viz: "stream",
   selected_tab: "",
   results: Set(),
   cart: Set()

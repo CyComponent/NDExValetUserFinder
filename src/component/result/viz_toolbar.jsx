@@ -12,9 +12,7 @@ export default class VizToolbar extends React.Component {
     return (
         <Toolbar>
           <ToolbarGroup firstChild={true} float="left">
-            <FontIcon className="material-icons" onTouchTap={() => {this.props.vizSwitch("list")}}>format_align_justify</FontIcon>
             <FontIcon className="material-icons" onTouchTap={() => {this.props.vizSwitch("stream")}}>view_stream</FontIcon>
-            <FontIcon className="material-icons" onTouchTap={() => {this.props.vizSwitch("grid")}}>view_module</FontIcon>
           </ToolbarGroup>
         </Toolbar>
     )

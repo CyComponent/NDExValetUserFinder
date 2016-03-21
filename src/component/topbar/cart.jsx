@@ -15,8 +15,6 @@ export default class Cart extends React.Component {
   }
 
   handleClick(item) {
-    console.log(this)
-    console.log(item)
     this.props.removeFromCart(item)
   }
 
@@ -28,7 +26,7 @@ export default class Cart extends React.Component {
       cartList = this.props.cart.map(item => (<tr>
                                                 <td>
                                                   <FlatButton
-                                                    label={item.title}
+                                                    label={item.name}
                                                     labelPosition="after"
                                                     onClick={this.handleClick.bind(this, item)}
                                                     icon={

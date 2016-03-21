@@ -22,7 +22,7 @@ export default class ResultArea extends React.Component {
       case "list":
         return <List networks={networks} addToCart={this.props.addToCart}/>
       case "stream":
-        return <Stream networks={networks}/>
+        return <Stream networks={networks} addToCart={this.props.addToCart}/>
       case "grid":
         return <Grid networks={networks}/>
     }

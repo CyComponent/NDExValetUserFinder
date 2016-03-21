@@ -7,6 +7,7 @@ import PopOver from 'material-ui/lib/popover/popover'
 import Dialog from 'material-ui/lib/dialog'
 import Cart from './cart'
 import Login from './login'
+import Badge from 'material-ui/lib/badge';
 
 export default class TopBar extends React.Component {
 
@@ -87,17 +88,17 @@ export default class TopBar extends React.Component {
     console.log(login)
     return (
       <AppBar
-        title="1 in Network Cart"
+        title="Network Cart"
         onTitleTouchTap={this.toggleCart.bind(this)}
         iconElementLeft={
-          <IconButton>
+            <IconButton>
               <FontIcon
                 className="material-icons"
                 onClick={this.toggleCart.bind(this)}
-               >
+              >
                 shopping_cart
               </FontIcon>
-          </IconButton>
+            </IconButton>
         }
         iconElementRight={
           login
