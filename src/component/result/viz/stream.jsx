@@ -20,7 +20,9 @@ export default class Stream extends React.Component {
     const root = {
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-around'
+      justifyContent: 'space-around',
+      height: 750,
+      overflow: 'scroll'
     }
     const gridList = {
       width: '100%',
@@ -30,18 +32,34 @@ export default class Stream extends React.Component {
     }
     const stream = this.props.networks.map((N) => (<Paper zDepth={1} style={{ width: '96%', marginTop: '10px' }}>
                                                      <Toolbar>
-                                                       <ToolbarGroup float="left">
-                                                         <ToolbarTitle text={N.name}/>
-                                                       </ToolbarGroup>
                                                        <ToolbarGroup float="right">
-                                                         <RaisedButton label="On NDEx" primary={true} linkButton={true} href={N.uri} style={{
-                                                           marginRight: 0
-                                                         }}/>
-                                                         <RaisedButton label="Add to Cart" onClick={this.add.bind(this, N)} primary={false} style={{
+                                                         <RaisedButton label="On NDEx" primary={true} linkButton={true}
+                                                         href={"http://dev2.ndexbio.org/#/network/" + N.externalId}
+                                                         style={{
                                                            marginRight: 0
                                                          }}/>
                                                        </ToolbarGroup>
                                                      </Toolbar>
+                                                     <table style={{width: '100%'}}>
+                                                       <tbody>
+                                                         <tr>
+                                                           <td><p>Name:</p></td>
+                                                           <td><p>{N.name}</p></td>
+                                                         </tr>
+                                                          <tr>
+                                                           <td><p>Owner:</p></td>
+                                                           <td><p>{N.owner}</p></td>
+                                                         </tr>
+                                                         <tr>
+                                                           <td><p>Edges:</p></td>
+                                                           <td><p>{N.edgeCount}</p></td>
+                                                         </tr>
+                                                         <tr>
+                                                           <td><p>Nodes:</p></td>
+                                                           <td><p>{N.nodeCount}</p></td>
+                                                         </tr>
+                                                       </tbody>
+                                                     </table>
                                                    </Paper>))
     console.log(stream)
     return (

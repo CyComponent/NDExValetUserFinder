@@ -1,7 +1,9 @@
 import { VIZ_SWITCH, UPDATE_QUERY, START_SEARCH, END_SEARCH, UPDATE_USER, UPDATE_PASS, LOGIN, LOGOUT, ADD_TO_CART, REMOVE_FROM_CART } from "../actions"
 import { Map, Set } from 'immutable'
 
-const defaultNetworkFinderState = Map({
+const defaultState = Map({
+  style: {},
+  topbar: true,
   query: "",
   isSearching: false,
   user: "",
@@ -13,7 +15,10 @@ const defaultNetworkFinderState = Map({
   cart: Set()
 })
 
-export default function networkFinder(state = defaultNetworkFinderState, action) {
+export default function networkFinder(state = defaultState, action) {
+    if (!state.hydrated) {
+      state = defaultState.merge(Map(state)).merge(Map({hydrated: true}))
+    }
     switch(action.type) {
       case VIZ_SWITCH:
         return state.set('selected_viz', action.viz.slice(0))

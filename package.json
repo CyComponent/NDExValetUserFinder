@@ -1,7 +1,7 @@
 {
-  "name": "",
-  "version": "v0.0.0",
-  "description": "",
+  "name": "cyto-network-finder",
+  "version": "v0.0.17",
+  "description": "Find NDEx networks with ease.",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --content-base build",
     "serve": "webpack-dev-server --inline --hot --host 0.0.0.0 --content-base build",
@@ -11,7 +11,7 @@
     "test": "eslint src/ && jest",
     "coverage": "jest --coverage"
   },
-  "main": "build/app.js",
+  "main": "build/finder.js",
   "jest": {
     "scriptPreprocessor": "<rootDir>/.preprocessor.js"
   },
@@ -20,7 +20,7 @@
     "url": ""
   },
   "keywords": [],
-  "author": "",
+  "author": "Eric Sage",
   "license": "MIT",
   "bugs": {
     "url": ""
@@ -45,13 +45,14 @@
   "dependencies": {
     "immutable": "^3.7.6",
     "material-ui": "^0.14.4",
-    "react": "^0.14.7",
-    "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
-    "react-tap-event-plugin": "^0.2.2",
     "redux": "^3.3.1",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^1.0.3"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.5.1",

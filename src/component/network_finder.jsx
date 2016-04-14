@@ -5,28 +5,44 @@ import TopBar from './topbar/topbar'
 import SearchArea from './search/search_area'
 import ResultArea from './result/result_area'
 
+import ThemeManager from 'material-ui/lib/styles/theme-manager';
+
 export default class NetworkFinder extends React.Component {
 
-  constructor(props) {super(props)}
+  constructor(props) {
+    super(props)
+    this.constructor.childContextTypes = {
+      muiTheme: React.PropTypes.object
+    }
+  }
+
+  getChildContext() {
+    return {
+      muiTheme: ThemeManager.getMuiTheme(this.props.palette)
+    }
+  }
 
   render() {
     console.log(this)
+    if (this.props.topbar == true) {
+      var topbar = <TopBar
+                     cart={this.props.cart}
+                     user={this.props.user}
+                     pass={this.props.pass}
+                     logged_in={this.props.logged_in}
+                     login={this.props.login}
+                     logout={this.props.logout}
+                     updateUser={this.props.updateUser}
+                     updatePass={this.props.updatePass}
+                     removeFromCart={this.props.removeFromCart}/>
+    }
     const style = {
-      height: 700,
-      width: "90%"
+      height: 900,
+      width: 1200
     }
     return (
-      <Paper style={style} zDepth={5}>
-        <TopBar
-          cart={this.props.cart}
-          user={this.props.user}
-          pass={this.props.pass}
-          logged_in={this.props.logged_in}
-          login={this.props.login}
-          logout={this.props.logout}
-          updateUser={this.props.updateUser}
-          updatePass={this.props.updatePass}
-          removeFromCart={this.props.removeFromCart}/>
+      <div style={style}>
+        {topbar}
         <SearchArea
           search={this.props.search}
           result={this.props.result}
@@ -44,8 +60,7 @@ export default class NetworkFinder extends React.Component {
           addToCart={this.props.addToCart}
           vizSwitch={this.props.vizSwitch}
           viz={this.props.viz}/>
-      </Paper>
+      </div>
     )
   }
-
 }

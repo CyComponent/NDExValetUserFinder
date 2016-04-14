@@ -2,11 +2,16 @@ import { connect } from 'react-redux'
 import NetworkFinder from '../component/network_finder'
 import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCart, removeFromCart, startSearch, endSearch } from '../state/reducers/network_finder_reducer'
 import { addResults } from '../state/reducers/network_lists_reducer'
+import networkFinderReducer from '../state/reducers/network_finder_reducer'
+import networkListsReducer from '../state/reducers/network_lists_reducer'
+require("../style/app.scss")
 
 function mapStateToProps(state) {
   return {
     networkLists: state.networkLists,
     query: state.networkFinder.get('query'),
+    topbar: state.networkFinder.get('topbar'),
+    palette: state.networkFinder.get('style'),
     viz: state.networkFinder.get('selected_viz'),
     cart: state.networkFinder.get('cart'),
     user: state.networkFinder.get('user'),
@@ -32,7 +37,14 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(
+const component = connect(
     mapStateToProps,
     mapDispatchToProps
-)(NetworkFinder)
+  )(NetworkFinder)
+
+const reducers = {
+  networkFinder: networkFinderReducer,
+  networkLists: networkListsReducer
+}
+
+export { component, reducers }

@@ -41,11 +41,14 @@ export default class ResultArea extends React.Component {
         {this.getViz(this.props.viz, name, list)}
       </Tab>)
     })
+    if (tabs.length > 0) {
+      var page = <Tabs>
+                   {tabs}
+                 </Tabs>
+    }
     return (
       <div style={style}>
-        <Tabs>
-          {tabs}
-        </Tabs>
+          {page}
       </div>
     )
   }
