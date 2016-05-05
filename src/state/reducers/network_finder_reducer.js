@@ -9,7 +9,7 @@ const defaultState = Map({
   user: "",
   pass: "",
   logged_in: false,
-  selected_viz: "stream",
+  selected_viz: "props",
   selected_tab: "",
   results: Set(),
   cart: Set()

@@ -7,6 +7,7 @@ import Spinner from './viz/spinner'
 import List from './viz/list'
 import Grid from './viz/grid'
 import Stream from './viz/stream'
+import Props from './viz/props'
 
 export default class ResultArea extends React.Component {
 
@@ -19,12 +20,10 @@ export default class ResultArea extends React.Component {
       return <Spinner/>
     }
     switch(viz) {
-      case "list":
-        return <List networks={networks} addToCart={this.props.addToCart}/>
       case "stream":
         return <Stream networks={networks} addToCart={this.props.addToCart}/>
-      case "grid":
-        return <Grid networks={networks}/>
+      case "props":
+        return <Props networks={networks}/>
     }
   }
 

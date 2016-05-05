@@ -12,7 +12,7 @@ export default class SearchArea extends React.Component {
   handleSearch() {
     this.props.addResults([])
     this.props.startSearch()
-    window.fetch('http://dev2.ndexbio.org/rest/network/search/0/10',
+    window.fetch('http://dev2.ndexbio.org/rest/network/search/0/50',
         { mode: 'cors',
           method: 'post',
           headers: {

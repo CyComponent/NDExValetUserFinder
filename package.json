@@ -46,6 +46,7 @@
     "immutable": "^3.7.6",
     "material-ui": "^0.14.4",
     "react-redux": "^4.4.0",
+    "reactable": "^0.13.0",
     "redux": "^3.3.1",
     "redux-logger": "^2.5.2",
     "redux-thunk": "^1.0.3"

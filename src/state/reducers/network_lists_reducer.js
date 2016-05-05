@@ -6,7 +6,7 @@ const defaultNetworkLists = Map({})
 export default function networkLists(state = defaultNetworkLists, action) {
     switch(action.type) {
       case ADD_RESULTS:
-        return state.set('Search', action.results)
+        return state.set('Results', action.results)
       default:
         return state
     }

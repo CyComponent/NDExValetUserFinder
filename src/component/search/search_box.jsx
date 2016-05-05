@@ -20,7 +20,7 @@ export default class SearchBox extends React.Component {
       overflowY: 'auto'
     }
     return (
-        <textarea style={style} value={this.props.query} onChange={this.handleChange.bind(this)}/>
+        <textarea style={style} placeholder="Enter your search terms here..." value={this.props.query} onChange={this.handleChange.bind(this)}/>
     )
   }
 

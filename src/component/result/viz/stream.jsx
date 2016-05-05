@@ -7,6 +7,7 @@ import ToolbarTitle from 'material-ui/lib/toolbar/toolbar-title';
 import Checkbox from 'material-ui/lib/checkbox';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Divider from 'material-ui/lib/divider';
+import { Table, Tr, Td } from 'reactable';
 
 export default class Stream extends React.Component {
 
@@ -61,12 +62,32 @@ export default class Stream extends React.Component {
                                                        </tbody>
                                                      </table>
                                                    </Paper>))
+
+    const table = this.props.networks.map((N) => (
+            <Tr>
+              <Td column="Image"><img src="http://i.imgur.com/ieXnqQN.png?1" style={{width:100, height:100, backgroundColor: "grey"}}/></Td>
+              <Td column="Name" value={N.name}><a href={"http://dev2.ndexbio.org/#/network/" + N.externalId}>{N.name}</a></Td>
+              <Td column="Owner" value={N.owner}><a href={"http://dev2.ndexbio.org/#/user/" + N.owner}>{N.owner}</a></Td>
+              <Td column="Edges">{N.edgeCount}</Td>
+              <Td column="Nodes">{N.nodeCount}</Td>
+              <Td column="Created">{this.time(N.creationTime)}</Td>
+              <Td column="Modified">{this.time(N.modificationTime)}</Td>
+            </Tr>
+          ))
     console.log(stream)
     return (
       <div style={root}>
-        {stream}
+        <Table sortable={true} style={{width: "100%"}}>
+          {table}
+        </Table>
       </div>
     )
+  }
+
+  time(T) {
+    var d = new Date(0)
+    d.setUTCSeconds(T/1000.0)
+    return d.toLocaleDateString()
   }
 
 }
