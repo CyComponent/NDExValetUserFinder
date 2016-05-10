@@ -4,7 +4,7 @@ import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCar
 import { addResults } from './store/networkLists'
 import networkFinder from './store/networkFinder'
 import networkLists from './store/networkLists'
-require("../style/app.scss")
+require("./style/app.scss")
 
 function mapStateToProps(state) {
   return {

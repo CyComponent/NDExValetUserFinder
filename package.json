@@ -1,12 +1,10 @@
 {
-  "name": "cyto-network-finder",
+  "name": "NDExValet",
   "version": "v0.0.17",
   "description": "Find NDEx networks with ease.",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --content-base build",
-    "serve": "webpack-dev-server --inline --hot --host 0.0.0.0 --content-base build",
     "build": "webpack --progress --colors",
-    "clean": "rm build/app.js",
+    "clean": "rm build/NDExValet.js",
     "lint": "eslint src/; exit 0",
     "test": "eslint src/ && jest",
     "coverage": "jest --coverage"
@@ -47,9 +45,7 @@
     "material-ui": "^0.14.4",
     "react-redux": "^4.4.0",
     "reactable": "^0.13.0",
-    "redux": "^3.3.1",
-    "redux-logger": "^2.5.2",
-    "redux-thunk": "^1.0.3"
+    "redux": "^3.3.1"
   },
   "peerDependencies": {
     "react": "^15.0.0",
@@ -68,11 +64,9 @@
     "jest-cli": "^0.8.2",
     "jest-webpack-alias": "^2.0.0",
     "node-sass": "^3.4.2",
-    "react-hot-loader": "^1.3.0",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.13",
-    "webpack-dev-server": "^1.14.0"
+    "webpack": "^1.12.13"
   }
 }
