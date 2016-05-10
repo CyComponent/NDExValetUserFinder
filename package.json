@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/CyComponent/NDExValet.git"
   },
   "keywords": [],
   "author": "Eric Sage",
   "license": "MIT",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/CyComponent/NDExValet/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/CyComponent/NDExValet",
   "eslintConfig": {
     "parser": "babel-eslint",
     "extends": "eslint:recommended",
