@@ -1,12 +1,12 @@
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/container/network_finder.js"),
+  entry: path.resolve(__dirname, "src/CyComponent.js"),
   output: {
     path: path.resolve(__dirname, "build"),
-    library: "NetworkFinder",
+    library: "NDExValet.js",
     libraryTarget: "umd",
-    filename: "finder.js",
+    filename: "NDExValet.js",
   },
   externals: {
     "react":"React",
@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loaders: ['react-hot', 'babel?presets[]=es2015&presets[]=react']
+        loaders: ['babel?presets[]=es2015&presets[]=react']
       },
       {
         test: /\.scss$/,

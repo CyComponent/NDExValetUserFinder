@@ -1,7 +1,8 @@
-import { ADD_RESULTS } from "../actions"
 import { Map } from 'immutable'
 
 const defaultNetworkLists = Map({})
+
+const ADD_RESULTS = 'ADD_RESULTS'
 
 export default function networkLists(state = defaultNetworkLists, action) {
     switch(action.type) {

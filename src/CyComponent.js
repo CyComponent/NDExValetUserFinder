@@ -1,9 +1,9 @@
 import { connect } from 'react-redux'
-import NetworkFinder from '../component/network_finder'
-import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCart, removeFromCart, startSearch, endSearch } from '../state/reducers/network_finder_reducer'
-import { addResults } from '../state/reducers/network_lists_reducer'
-import networkFinderReducer from '../state/reducers/network_finder_reducer'
-import networkListsReducer from '../state/reducers/network_lists_reducer'
+import NetworkFinder from './component/NDExValet'
+import { vizSwitch, updateQuery, updateUser, updatePass, login, logout, addToCart, removeFromCart, startSearch, endSearch } from './store/networkFinder'
+import { addResults } from './store/networkLists'
+import networkFinder from './store/networkFinder'
+import networkLists from './store/networkLists'
 require("../style/app.scss")
 
 function mapStateToProps(state) {
@@ -40,11 +40,11 @@ function mapDispatchToProps(dispatch) {
 const component = connect(
     mapStateToProps,
     mapDispatchToProps
-  )(NetworkFinder)
+  )(NDExValet)
 
-const reducers = {
-  networkFinder: networkFinderReducer,
-  networkLists: networkListsReducer
+const stores = {
+  networkFinder,
+  networkLists
 }
 
-export { component, reducers }
+export { component, stores }

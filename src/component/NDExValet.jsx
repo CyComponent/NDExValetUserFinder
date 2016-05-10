@@ -7,7 +7,7 @@ import ResultArea from './result/result_area'
 
 import ThemeManager from 'material-ui/lib/styles/theme-manager';
 
-export default class NetworkFinder extends React.Component {
+export default class NDExValet extends React.Component {
 
   constructor(props) {
     super(props)

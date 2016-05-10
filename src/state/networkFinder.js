@@ -1,5 +1,15 @@
-import { VIZ_SWITCH, UPDATE_QUERY, START_SEARCH, END_SEARCH, UPDATE_USER, UPDATE_PASS, LOGIN, LOGOUT, ADD_TO_CART, REMOVE_FROM_CART } from "../actions"
 import { Map, Set } from 'immutable'
+
+export const VIZ_SWITCH = "VIZ_SWITCH"
+export const UPDATE_QUERY = "UPDATE_QUERY"
+export const START_SEARCH = "START_SEARCH"
+export const END_SEARCH = "END_SEARCH"
+export const UPDATE_USER = "UPDATE_USER"
+export const UPDATE_PASS = "UPDATE_PASS"
+export const LOGIN = "LOGIN"
+export const LOGOUT = "LOGOUT"
+export const ADD_TO_CART = "ADD_TO_CART"
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 
 const defaultState = Map({
   style: {},
