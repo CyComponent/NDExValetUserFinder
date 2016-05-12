@@ -2,34 +2,19 @@ import React from 'react'
 import Paper from 'material-ui/lib/paper';
 import RaisedButton from 'material-ui/lib/raised-button'
 
-import Actionbar from './action_bar'
+import PluginBar from './action_bar'
 import SearchBox from './search_box'
 
-export default class SearchArea extends React.Component {
+export default class SearchPage extends React.Component {
 
   constructor(props) {super(props)}
 
   handleSearch() {
-    this.props.addResults([])
-    this.props.startSearch()
-    window.fetch('http://dev2.ndexbio.org/rest/network/search/0/50',
-        { mode: 'cors',
-          method: 'post',
-          headers: {
-            'Accept':'application/json',
-            'Content-Type':'application/json'
-          },
-          body: JSON.stringify({searchString: this.props.query})
-        }).then((R) => {
-      return R.json()
-    }).then((D) => {
-      this.props.endSearch()
-      this.props.addResults(D)
-    })
+    this.props.search(this.props.fields.query)
   }
 
   render() {
-    const style = {
+    const page = {
       height: "100%",
       width: "45%",
       float: "left"
@@ -46,10 +31,10 @@ export default class SearchArea extends React.Component {
       marginTop: 0
     }
     return (
-        <div style={style}>
+        <div style={page}>
           <Paper style={boundry} zDepth={2}>
-            <Actionbar/>
-            <SearchBox query={this.props.query} updateQuery={this.props.updateQuery}/>
+            <PluginBar plugin={this.props.plugin}/>
+            <SearchBox query={this.props.fields.query} updateQuery={this.props.updateQuery}/>
           </Paper>
           <RaisedButton
             onClick={this.handleSearch.bind(this)}

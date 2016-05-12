@@ -9,14 +9,14 @@ import Grid from './viz/grid'
 import Stream from './viz/stream'
 import Props from './viz/props'
 
-export default class ResultArea extends React.Component {
+export default class ResultPage extends React.Component {
 
   constructor(props) {
     super(props)
   }
 
   getViz(viz, listname, networks) {
-    if (this.props.isSearching && (listname == "Search")) {
+    if (this.props.search.searching && (listname == "Search")) {
       return <Spinner/>
     }
     switch(viz) {
