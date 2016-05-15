@@ -10,7 +10,8 @@ export default class SearchPage extends React.Component {
   constructor(props) {super(props)}
 
   handleSearch() {
-    this.props.search(this.props.fields.query)
+    this.props.luceneActions.searchBegin()
+    this.props.searchFor(this.props.fields.query)
   }
 
   render() {
@@ -34,7 +35,7 @@ export default class SearchPage extends React.Component {
         <div style={page}>
           <Paper style={boundry} zDepth={2}>
             <PluginBar plugin={this.props.plugin}/>
-            <SearchBox query={this.props.fields.query} updateQuery={this.props.updateQuery}/>
+            <SearchBox query={this.props.field.query} updateQuery={this.props.fieldAction.updateQuery}/>
           </Paper>
           <RaisedButton
             onClick={this.handleSearch.bind(this)}

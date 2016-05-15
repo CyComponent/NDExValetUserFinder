@@ -120,10 +120,10 @@ export default class TopBar extends React.Component {
           onRequestClose={this.closeLogin.bind(this)}
         >
           <Login
-            user={this.props.user}
-            pass={this.props.pass}
+            name={this.props.field.name}
+            pass={this.props.field.pass}
             login={this.props.login}
-            updateUser={this.props.updateUser}
+            updateUser={this.props.fieldAction.updateName}
             updatePass={this.props.updatePass}
           />
         </PopOver>

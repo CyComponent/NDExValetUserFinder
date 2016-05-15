@@ -15,6 +15,7 @@ export default class ResultPage extends React.Component {
     super(props)
   }
 
+  //Pass in cartActions with { addId(id) and deleteId(id) addNetwork(netowrkSUmmary) deleteNetwork(netowrksummary)
   getViz(viz, listname, networks) {
     if (this.props.search.searching && (listname == "Search")) {
       return <Spinner/>

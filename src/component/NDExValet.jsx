@@ -18,25 +18,29 @@ export default class NDExValet extends React.Component {
     return (
       <MuiThemeProvider
         muiTheme={
-          getMuiTheme({palette: this.props.options.palette})
+         this.props.options.palette ?  getMuiTheme({palette: this.props.options.palette}) : null
         }
       />
         <div style={{ height: 900, width: 1200}}>
           { this.props.options.showTopbar == true ?
               <TopBar
-                fields={this.props.fields}
+                field={this.props.field}
+                fieldAction={this.props.fieldAction}
                 cart={this.props.cart}
+                cartActions={this.props.cartActions}
                 ndexCred={this.props.cred}
               /> : null
           }
           <SearchPage
-            fields={this.props.fields}
+            field={this.props.field}
+            fieldAction={this.props.fieldAction}
+            lucene={this.props.lucene}
+            luceneActions={this.props.luceneActions}
             plugin={this.props.plugin}
-            search={this.props.search}
           />
           <Resultpage
-            viz={this.props.viz}
-            search={this.props.search}
+            lucene={this.props.lucene}
+            cartActions={this.props.cartActions}
           />
         </div>
       </MuiThemeProvider>
