@@ -1,7 +1,7 @@
 var path = require('path');
 
 module.exports = {
-  entry: path.resolve(__dirname, "src/CyComponent.js"),
+  entry: path.resolve(__dirname, "src/NDExValet.js"),
   output: {
     path: path.resolve(__dirname, "build"),
     library: "NDExValet.js",

@@ -1,11 +1,13 @@
 import React from 'react'
 
-export default class SearchBox extends React.Component {
+export default class PluginBox extends React.Component {
 
-  constructor(props) {super(props)}
+  constructor(props) {
+    super(props)
+  }
 
   handleChange(event) {
-    this.props.updateQuery(event.target.value)
+    this.props.fieldActions.updateQuery(event.target.value)
   }
 
   render() {

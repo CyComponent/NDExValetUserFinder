@@ -6,11 +6,11 @@
 
 import { Map } from 'immutable'
 
-const UPDATE_QUERY
-const UPDATE_LOGIN_NAME
-const UPDATE_LOGIN_PASS
+const UPDATE_QUERY =  "UPDATE_QUERY"
+const UPDATE_LOGIN_NAME = "UPDATE_LOGIN_NAME"
+const UPDATE_LOGIN_PASS = "UPDATE_LOGIN_PASS"
 
-cost defaultState = Map({
+const defaultState = Map({
   query: "",
   name: "",
   pass: ""

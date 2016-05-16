@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 
 import NDEXValet from './component/NDExValet'
 
-import * as fieldActions from './store/field'
-import * as pluginActions from './store/plugin'
+import fields, * as fieldActions from './store/fields'
 
 import {
   cartActions,
@@ -15,9 +14,7 @@ require("./style/app.scss")
 
 function mapStateToProps(state) {
   return {
-    field: state.valet.field,
-    plugin: state.valet.plugin,
-    option: state.valet.option,
+    fields: state.valet.fields,
     cart: state.ndex.cart,
     cred: state.ndex.credential,
     lucene: state.ndex.lucene
@@ -27,7 +24,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fieldActions: bindActionCreators(fieldActions, dispatch),
-    pluginActions: bindActionCreators(pluginActions, dispatch),
     cartActions: bindActionCreators(cartActions, dispatch),
     luceneActions: bindActionCreators(luceneActions, dispatch)
   }
@@ -40,13 +36,7 @@ const component = connect(
 
 const storeName = 'valet'
 
-const store = {
-  field,
-  option,
-  plugin
-  networkFinder,
-  networkLists
-}
+const store = { fields }
 
 export {
   component,

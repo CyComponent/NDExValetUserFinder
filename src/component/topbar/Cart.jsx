@@ -1,5 +1,5 @@
 import React from 'react'
-import FlatButton from 'material-ui/lib/flat-button';
+import FlatButton from 'material-ui/lib/FlatButton';
 import FontIcon from 'material-ui/lib/font-icon';
 import Table from 'material-ui/lib/table/table';
 import TableHeaderColumn from 'material-ui/lib/table/table-header-column';

@@ -1,7 +1,7 @@
 import React from 'react'
-import Toolbar from 'material-ui/lib/toolbar/toolbar';
+import { Toolbar } from 'material-ui/Toolbar';
 
-export default class Pluginbar extends React.Component {
+export default class PluginBar extends React.Component {
 
   constructor(props) {
     super(props)
