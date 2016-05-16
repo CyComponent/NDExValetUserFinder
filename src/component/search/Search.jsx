@@ -33,15 +33,15 @@ export default class Search extends React.Component {
           <Paper style={boundry} zDepth={2}>
             <PluginBar/>
             <PluginView
-              query={this.props.fields.query}
-              updateQuery={this.props.fieldAction.updateQuery}
+              fields={this.props.fields}
+              fieldActions={this.props.fieldActions}
             />
           </Paper>
           <RaisedButton
             label="Search"
             primary={true}
             style={searchButton}
-            onClick={this.props.luceneActions.searchBegin(this.props.fields.query)}
+            onClick={this.props.luceneActions.searchBegin(this.props.fields.get('query'))}
           />
         </div>
     )

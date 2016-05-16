@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default class PluginBox extends React.Component {
+export default class PluginView extends React.Component {
 
   constructor(props) {
     super(props)
@@ -22,7 +22,12 @@ export default class PluginBox extends React.Component {
       overflowY: 'auto'
     }
     return (
-        <textarea style={style} placeholder="Enter your search terms here..." value={this.props.query} onChange={this.handleChange.bind(this)}/>
+        <textarea
+          style={style}
+          placeholder="Enter your search terms here..."
+          value={this.props.fields.get('query')}
+          onChange={this.handleChange.bind(this)}
+        />
     )
   }
 

@@ -31,8 +31,8 @@ export default class NDExValet extends React.Component {
               /> : null
           }*/
           <Search
-            field={this.props.field}
-            fieldAction={this.props.fieldAction}
+            fields={this.props.fields}
+            fieldActions={this.props.fieldActions}
             lucene={this.props.lucene}
             luceneActions={this.props.luceneActions}
           />

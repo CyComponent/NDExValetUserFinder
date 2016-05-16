@@ -1,14 +1,13 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import NDEXValet from './component/NDExValet'
+import NDExValet from './component/NDExValet'
 
 import fields, * as fieldActions from './store/fields'
 
-import {
-  cartActions,
-  luceneActions
-} from 'ndex-store'
+//Make these third party deps
+import * as cartActions from './store/cart'
+import * as luceneActions from './store/lucene'
 
 require("./style/app.scss")
 
