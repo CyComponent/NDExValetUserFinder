@@ -25,7 +25,7 @@ export default class PluginView extends React.Component {
         <textarea
           style={style}
           placeholder="Enter your search terms here..."
-          value={this.props.fields.get('query')}
+          value={this.props.fields.query}
           onChange={this.handleChange.bind(this)}
         />
     )

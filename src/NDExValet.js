@@ -8,6 +8,7 @@ import fields, * as fieldActions from './store/fields'
 //Make these third party deps
 import * as cartActions from './store/cart'
 import * as luceneActions from './store/lucene'
+import * as credentialActions from './store/credentials'
 
 require("./style/app.scss")
 
@@ -24,7 +25,8 @@ function mapDispatchToProps(dispatch) {
   return {
     fieldActions: bindActionCreators(fieldActions, dispatch),
     cartActions: bindActionCreators(cartActions, dispatch),
-    luceneActions: bindActionCreators(luceneActions, dispatch)
+    luceneActions: bindActionCreators(luceneActions, dispatch),
+    credActions: bindActionCreators(credentialActions, dispatch)
   }
 }
 

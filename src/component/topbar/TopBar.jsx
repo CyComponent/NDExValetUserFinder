@@ -30,7 +30,7 @@ export default class TopBar extends React.Component {
   handleLogin = (event) => {
     this.setState({
       loginOpen: !this.state.loginOpen,
-      anchorEl: event.currentTarget
+      anchorEl: event ? event.currentTarget : null
     })
   }
 

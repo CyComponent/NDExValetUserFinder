@@ -41,5 +41,5 @@ export function updateName(name) {
 
 /*Update the query field*/
 export function updatePass(pass) {
-  return { type: UPDATE_QUERY, pass }
+  return { type: UPDATE_LOGIN_PASS, pass }
 }
