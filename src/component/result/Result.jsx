@@ -10,7 +10,6 @@ export default class Result extends React.Component {
 
   constructor(props) {
     super(props)
-    this.switchViz(nextViz) = this.switchViz.bind(this, nextViz)
     this.vizualizations = [ListViz]
     this.props.lucene.isSearching ?
       Spinner.viz :
@@ -25,20 +24,28 @@ export default class Result extends React.Component {
   render() {
     const style = { height: "100%", width: "55%", float: "right" }
     var vizIcons = this.vizualizations.map((V) => {
-      <FontIcon className="material-icons" onClick={this.switchViz(V.viz)}>
+      <FontIcon
+        className="material-icons"
+        onClick={this.switchViz.bind(this, V.viz)}
+      >
         V.vizName
       </FontIcon>
     })
     return (
       <div style={style}>
-        <Tab label="Search Results" key={0}>
-          <Toolbar>
-            <ToolbarGroup fistChild={true} float="left">
-              {vizIcons}
-            </ToolbarGroup>
-          </Toolbar>
-          <this.state.viz networkSummaries={this.props.lucene.networkSummaries} cartActions={this.props.cartActions}/>
-        </Tab>
+        <Tabs>
+          <Tab label="Search Results">
+            <Toolbar>
+              <ToolbarGroup fistChild={true} float="left">
+                {vizIcons}
+              </ToolbarGroup>
+            </Toolbar>
+            <this.state.viz
+              networkSummaries={this.props.lucene.networkSummaries}
+              cartActions={this.props.cartActions}
+            />
+          </Tab>
+        </Tabs>
       </div>
     )
   }
