@@ -2,7 +2,7 @@ import React from 'react'
 import Paper from 'material-ui/Paper'
 
 import Search from './search/Search'
-import Result from './result/Result'
+//import Result from './result/Result'
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -17,17 +17,26 @@ export default class NDExValet extends React.Component {
     const theme = getMuiTheme({})
     return (
       <MuiThemeProvider muiTheme={theme}>
-        <div style={{ height: '100%', width: '100%'}}>
+        <div style={{ height: 900, width: 1200}}>
+         /* { this.props.showTopbar == true ?
+              <TopBar
+                field={this.props.field}
+                fieldAction={this.props.fieldAction}
+                cart={this.props.cart}
+                cartActions={this.props.cartActions}
+                ndexCred={this.props.cred}
+              /> : null
+          }*/
           <Search
             fields={this.props.fields}
-            lucene={this.props.lucene}
             fieldActions={this.props.fieldActions}
+            lucene={this.props.lucene}
             luceneActions={this.props.luceneActions}
           />
-         <Result
+          /*<Result
             lucene={this.props.lucene}
             cartActions={this.props.cartActions}
-          />
+          />*/
         </div>
       </MuiThemeProvider>
     )

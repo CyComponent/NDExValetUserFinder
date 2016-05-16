@@ -9,6 +9,12 @@ export default class Search extends React.Component {
 
   constructor(props) {
     super(props)
+    this.handleSearch = this.handleSearch.bind(this)
+  }
+
+  handleSearch() {
+    this.props.luceneActions.searchBegin()
+    this.props.luceneActions.searchFor(this.props.fields.get('query'))
   }
 
   render() {
@@ -41,7 +47,7 @@ export default class Search extends React.Component {
             label="Search"
             primary={true}
             style={searchButton}
-            onClick={this.props.luceneActions.searchBegin(this.props.fields.get('query'))}
+            onClick={this.handleSearch}
           />
         </div>
     )
