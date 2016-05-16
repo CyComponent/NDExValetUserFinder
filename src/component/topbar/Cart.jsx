@@ -1,12 +1,7 @@
-import React from 'react'
-import FlatButton from 'material-ui/lib/FlatButton';
-import FontIcon from 'material-ui/lib/font-icon';
-import Table from 'material-ui/lib/table/table';
-import TableHeaderColumn from 'material-ui/lib/table/table-header-column';
-import TableRow from 'material-ui/lib/table/table-row';
-import TableHeader from 'material-ui/lib/table/table-header';
-import TableRowColumn from 'material-ui/lib/table/table-row-column';
-import TableBody from 'material-ui/lib/table/table-body';
+import React        from 'react'
+import Dialog       from 'material-ui/Dialog'
+import FlatButton   from 'material-ui/FlatButton'
+import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
 
 export default class Cart extends React.Component {
 
@@ -14,38 +9,62 @@ export default class Cart extends React.Component {
     super(props)
   }
 
-  handleClick(item) {
-    this.props.removeFromCart(item)
+  handleRemove(networkSummary) {
+    this.props.cartActions.deleteNetwork(networkSummary)
+  }
+
+  handleClose = () => {
+    this.props.handleClose()
+  }
+
+  handleLoad = () => {
+    console.log("NDEx Valet Loaded networks!")
+    console.log(ths.props.cart)
   }
 
   render() {
-    var cartList, cartBody
-    if (this.props.cart.length == 0) {
-      cartBody = "Your shopping cart is empty. Select networks to add them to the cart, then press Begin."
-    } else {
-      cartList = this.props.cart.map(item => (<tr>
-                                                <td>
-                                                  <FlatButton
-                                                    label={item.name}
-                                                    labelPosition="after"
-                                                    onClick={this.handleClick.bind(this, item)}
-                                                    icon={
-                                                      <FontIcon className="material-icons">
-                                                        highlight_off
-                                                      </FontIcon>
-                                                    }
-                                                  >
-                                                  </FlatButton>
-                                                </td>
-                                              </tr>))
-    }
+    const actions = [
+      <FlatButton
+        label="Load Networks"
+        secondary={true}
+        onClick={this.handleLoad}
+      />,
+      <FlatButton
+        label="Close Cart"
+        primary={true}
+        keyboardFocused={true}
+        onClick={this.handleClose}
+      />
+    ]
+    const cart = this.props.cart.toJS()
     return (
-        <table>
-          <tbody>
-            {cartList}
-          </tbody>
-        </table>
-
+      <Dialog
+        title="Network Cart"
+        actions={actions}
+        modal={false}
+        open={this.props.isOpen}
+        autoScrollBodyContent={true}
+      >
+        {(cart.length == 0) ?
+          <p>Your shopping cart is empty.</p> :
+          <table>
+            <tbody>
+              {cart.map(n => (
+               <tr>
+                 <td>
+                   <FlatButton
+                     label={n.name}
+                     labelPosition="after"
+                     onClick={this.handleRemove.bind(this, n)}
+                     icon={<HighlightOff/>}
+                   />
+                 </td>
+               </tr>)
+             )}
+            </tbody>
+          </table>
+        }
+      </Dialog>
     )
   }
 

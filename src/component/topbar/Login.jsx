@@ -1,6 +1,7 @@
-import React from 'react'
-import TextField from 'material-ui/lib/text-field';
-import RaisedButton from 'material-ui/lib/raised-button'
+import React        from 'react'
+import Popover      from 'material-ui/Popover'
+import TextField    from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
 export default class Login extends React.Component {
 
@@ -8,36 +9,48 @@ export default class Login extends React.Component {
     super(props)
   }
 
-  handleUserChange(event) {
-    this.props.updateUser(event.target.value)
+  handleUser = (event) => {
+    this.props.fields.updateUser(event.target.value)
   }
 
-  handlePassChange(event) {
-    this.props.updatePass(event.target.value)
+  handlePass = (event) => {
+    this.props.fields.updatePass(event.target.value)
+  }
+
+  login = () => {
+    this.props.credActions.login(
+      this.props.fields.user,
+      this.props.fields.pass
+    )
   }
 
   render() {
-    var loginName = "Login"
     return (
-      <div>
-      <TextField value={this.props.user}
-        onChange={this.handleUserChange.bind(this)}
-        fullWidth={true}
-        type="username"
-        hintText="Username"
-      />
-      <TextField value={this.props.pass}
-        onChange={this.handlePassChange.bind(this)}
-        fullWidth={true}
-        type="password"
-        hintText="Password"
-      />
-      <RaisedButton
-        label="Login"
-        primary={true}
-        onClick={this.props.login}
-        style={{ width: "100%" }}/>
-      </div>
+      <Popover
+       open={this.props.isOpen}
+       anchorEl={this.props.anchorEl}
+      >
+        <TextField
+          value={this.props.fields.user}
+          type="username"
+          hintText="Username"
+          fullWidth={true}
+          onChange={this.handleUser}
+        />
+        <TextField
+          value={this.props.fields.pass}
+          type="password"
+          hintText="Password"
+          onChange={this.handlePass}
+          fullWidth={true}
+        />
+        <RaisedButton
+          label="Login"
+          primary={true}
+          onClick={this.login}
+          style={{ width: "100%" }}
+        />
+      </Popover>
     )
   }
 

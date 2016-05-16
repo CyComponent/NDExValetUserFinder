@@ -15,7 +15,7 @@ function mapStateToProps(state) {
   return {
     fields: state.valet.fields,
     cart: state.ndex.cart,
-    cred: state.ndex.credential,
+    creds: state.ndex.credentials,
     lucene: state.ndex.lucene
   }
 }

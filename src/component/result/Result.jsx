@@ -11,14 +11,16 @@ export default class Result extends React.Component {
   constructor(props) {
     super(props)
     this.vizualizations = [ListViz]
-    this.props.lucene.isSearching ?
-      Spinner.viz :
-      this.vizualizations[0].viz
-    this.state = { viz: this.vizualizations[0].viz }
+    this.state = {
+      vizualizations: [ListViz],
+      currViz: this.props.lucene.isSearching ?
+        Spinner.viz :
+        this.vizualizations[0].viz
+    }
   }
 
   switchViz(nextViz) {
-    this.setState({ viz: nextViz })
+    this.setState({ currViz: nextViz })
   }
 
   render() {
@@ -31,6 +33,7 @@ export default class Result extends React.Component {
         V.vizName
       </FontIcon>
     })
+    console.log(vizIcons)
     return (
       <div style={style}>
         <Tabs>
@@ -40,7 +43,7 @@ export default class Result extends React.Component {
                 {vizIcons}
               </ToolbarGroup>
             </Toolbar>
-            <this.state.viz
+            <this.state.currViz
               networkSummaries={this.props.lucene.networkSummaries}
               cartActions={this.props.cartActions}
             />
@@ -51,3 +54,6 @@ export default class Result extends React.Component {
   }
 
 }
+
+
+

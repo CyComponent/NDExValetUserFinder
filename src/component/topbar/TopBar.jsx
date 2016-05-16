@@ -1,132 +1,69 @@
-import React from 'react'
-import AppBar from 'material-ui/lib/app-bar'
-import FlatButton from 'material-ui/lib/flat-button'
-import IconButton from 'material-ui/lib/icon-button';
-import FontIcon from 'material-ui/lib/font-icon';
-import PopOver from 'material-ui/lib/popover/popover'
-import Dialog from 'material-ui/lib/dialog'
-import Cart from './cart'
-import Login from './login'
-import Badge from 'material-ui/lib/badge';
+/*
+ * Author: Eric Sage <eric.david.sage@gmail.com>
+ *
+ * The app bar displays a cart icon on the left for opening the network cart
+ * and also the logout mechanism on the right of the bar.
+ */
+
+import React      from 'react'
+import AppBar     from 'material-ui/AppBar'
+import FlatButton from 'material-ui/FlatButton'
+import IconButton from 'material-ui/IconButton';
+import CartIcon   from 'material-ui/svg-icons/action/shopping-cart';
+import PopOver    from 'material-ui/Popover'
+import Dialog     from 'material-ui/Dialog'
+import Badge      from 'material-ui/Badge';
+import Cart       from './Cart'
+import Login      from './Login'
 
 export default class TopBar extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      cart_open: false,
-      login_open: false
-    }
+    this.state = { cartOpen: false, loginOpen: false }
   }
 
-  toggleCart() {
+  handleCart = () => {
+    this.setState({ cartOpen: !this.state.cartOpen })
+  }
+
+  handleLogin = (event) => {
     this.setState({
-      cart_open: !this.state.cart_open,
-      login_open: this.state.login_open
+      loginOpen: !this.state.loginOpen,
+      anchorEl: event.currentTarget
     })
-  }
-
-  openLogin(event) {
-    console.log("Opened")
-    this.setState({
-      cart_open: this.state.cart_open,
-      login_open: true,
-      anchor: event.currentTarget
-    })
-  }
-
-  closeLogin() {
-    this.setState({
-      cart_open: this.state.cart_open,
-      login_open: false
-    })
-  }
-
-  checkLoggedIn() {
-    if (!this.props.logged_in) {
-      return (
-        <FlatButton
-          label="Login"
-          labelPosition="after"
-          onClick={this.openLogin.bind(this)}
-          icon={
-            <FontIcon className="material-icons">
-              account_circle
-            </FontIcon>
-          }
-        />
-      )
-    } else {
-      return (
-        <FlatButton
-          label={this.props.user}
-          labelPosition="after"
-          onClick={this.props.logout}
-          icon={
-            <FontIcon className="material-icons">
-              account_circle
-            </FontIcon>
-          }
-        />
-      )
-    }
   }
 
   render() {
-    const actions = [
-      <FlatButton
-        label="Close Cart"
-        secondary={true}
-        onTouchTap={this.toggleCart.bind(this)}
-      />,
-      <FlatButton
-        label="Begin"
-        primary={true}
-      />
-    ]
-    const login = this.checkLoggedIn()
-    console.log(login)
     return (
       <AppBar
         title="Network Cart"
-        onTitleTouchTap={this.toggleCart.bind(this)}
         iconElementLeft={
-            <IconButton>
-              <FontIcon
-                className="material-icons"
-                onClick={this.toggleCart.bind(this)}
-              >
-                shopping_cart
-              </FontIcon>
-            </IconButton>
+          <IconButton onClick={this.handleCart}>
+            <CartIcon/>
+          </IconButton>
         }
         iconElementRight={
-          login
+          <IconButton onClick={this.handleLogin}>
+            <CartIcon/>
+          </IconButton>
         }
       >
-        <Dialog
-          title="Network Shopping Cart"
-          actions={actions}
-          open={this.state.cart_open}
-        >
-          <Cart
-            removeFromCart={this.props.removeFromCart}
-            cart={this.props.cart}
-          />
-        </Dialog>
-        <PopOver
-          open={this.state.login_open}
-          anchorEl={this.state.anchor}
-          onRequestClose={this.closeLogin.bind(this)}
-        >
-          <Login
-            name={this.props.field.name}
-            pass={this.props.field.pass}
-            login={this.props.login}
-            updateUser={this.props.fieldAction.updateName}
-            updatePass={this.props.updatePass}
-          />
-        </PopOver>
+        <Cart
+          isOpen={this.state.cartOpen}
+          handleClose={this.handleCart}
+          cart={this.props.cart}
+          cartActions={this.props.cartActions}
+        />
+        <Login
+          isOpen={this.state.loginOpen}
+          handleClose={this.handleLogin}
+          anchorEl={this.state.anchorEl}
+          fields={this.props.fields}
+          fieldActions={this.props.fieldActions}
+          creds={this.props.creds}
+          credActions={this.props.credActions}
+        />
       </AppBar>
     )
   }
