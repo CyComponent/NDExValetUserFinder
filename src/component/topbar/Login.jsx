@@ -34,7 +34,7 @@ export default class Login extends React.Component {
        open={this.props.isOpen}
        anchorEl={this.props.anchorEl}
       >
-        <div style={{ margin: 40 }}>
+        <div style={{ margin: 30 }}>
           <TextField
             value={this.props.fields.get('name')}
             type="username"

@@ -41,7 +41,7 @@ export function login(name, pass) {
 }
 
 /* Login to Ndex */
-export function logout(name, pass) {
-  return { type: LOGOUT, name, pass }
+export function logout() {
+  return { type: LOGOUT }
 }
 

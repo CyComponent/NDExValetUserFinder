@@ -5,16 +5,18 @@
  * and also the logout mechanism on the right of the bar.
  */
 
-import React      from 'react'
-import AppBar     from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton'
-import IconButton from 'material-ui/IconButton';
-import CartIcon   from 'material-ui/svg-icons/action/shopping-cart';
-import PopOver    from 'material-ui/Popover'
-import Dialog     from 'material-ui/Dialog'
-import Badge      from 'material-ui/Badge';
-import Cart       from './Cart'
-import Login      from './Login'
+import React       from 'react'
+import AppBar      from 'material-ui/AppBar'
+import FlatButton  from 'material-ui/FlatButton'
+import IconButton  from 'material-ui/IconButton';
+import CartIcon    from 'material-ui/svg-icons/action/shopping-cart';
+import AccountIcon from 'material-ui/svg-icons/action/account-circle';
+import LogoutIcon  from 'material-ui/svg-icons/action/exit-to-app';
+import PopOver     from 'material-ui/Popover'
+import Dialog      from 'material-ui/Dialog'
+import Badge       from 'material-ui/Badge';
+import Cart        from './Cart'
+import Login       from './Login'
 
 export default class TopBar extends React.Component {
 
@@ -34,7 +36,24 @@ export default class TopBar extends React.Component {
     })
   }
 
+  handleLogout = () => {
+    this.props.credActions.logout()
+  }
+
+  getCredButton(loggedIn) {
+    return loggedIn ? {
+      label: this.props.creds.get('name'),
+      click: this.handleLogout,
+      icon: LogoutIcon
+    } : {
+      label: "Login",
+      click: this.handleLogin,
+      icon: AccountIcon
+    }
+  }
+
   render() {
+    const credButton = this.getCredButton(this.props.creds.get('loggedIn'))
     return (
       <AppBar
         title="Network Cart"
@@ -44,9 +63,12 @@ export default class TopBar extends React.Component {
           </IconButton>
         }
         iconElementRight={
-          <IconButton onClick={this.handleLogin}>
-            <CartIcon/>
-          </IconButton>
+          <FlatButton
+            label={credButton.label}
+            labelPosition="after"
+            onClick={credButton.click}
+            icon={<credButton.icon/>}
+          />
         }
       >
         <Cart

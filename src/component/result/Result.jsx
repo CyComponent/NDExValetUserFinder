@@ -24,7 +24,7 @@ export default class Result extends React.Component {
   }
 
   render() {
-    const style = { height: "100%", width: "55%", float: "right" }
+    const style = { height: "100%", width: "60%", float: "right" }
     var vizIcons = this.vizualizations.map((V) => {
       <FontIcon
         className="material-icons"

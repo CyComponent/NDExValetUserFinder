@@ -24,7 +24,7 @@ export default class NDExValet extends React.Component {
             fieldActions={this.props.fieldActions}
             cart={this.props.lucene.get('networkSummaries')}
             cartActions={this.props.cartActions}
-            cred={this.props.cred}
+            creds={this.props.creds}
             credActions={this.props.credActions}
           />
           <div style= {{ height: '90%' }}>
