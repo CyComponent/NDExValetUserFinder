@@ -20,7 +20,7 @@ export default class Search extends React.Component {
   render() {
     const page = {
       height: "100%",
-      width: "40%",
+      width: "30%",
       float: "left"
     }
     const boundry = {

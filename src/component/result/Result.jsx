@@ -24,7 +24,7 @@ export default class Result extends React.Component {
   }
 
   render() {
-    const style = { height: "100%", width: "60%", float: "right" }
+    const style = { height: "100%", width: "70%", float: "right" }
     var vizIcons = this.vizualizations.map((V) => {
       <FontIcon
         className="material-icons"
@@ -33,7 +33,6 @@ export default class Result extends React.Component {
         V.vizName
       </FontIcon>
     })
-    console.log(vizIcons)
     return (
       <div style={style}>
         <Tabs>
@@ -43,10 +42,13 @@ export default class Result extends React.Component {
                 {vizIcons}
               </ToolbarGroup>
             </Toolbar>
-            <this.state.currViz
-              networkSummaries={this.props.lucene.networkSummaries}
-              cartActions={this.props.cartActions}
-            />
+            <div style={{ height: '85%' }}>
+              <this.state.currViz
+                networkSummaries={this.props.lucene.get('networkSummaries')}
+                cart={this.props.cart}
+                cartActions={this.props.cartActions}
+              />
+            </div>
           </Tab>
         </Tabs>
       </div>

@@ -9,8 +9,12 @@ export default class Cart extends React.Component {
     super(props)
   }
 
-  handleRemove(networkSummary) {
-    this.props.cartActions.deleteNetwork(networkSummary)
+  handleRemove(I) {
+    console.log(I)
+    console.log(this.props.cart)
+    console.log(this.props)
+    console.log(this.props.cart.get(I))
+    this.props.cartActions.deleteNetwork(this.props.cart.get(I))
   }
 
   handleClose = () => {
@@ -18,8 +22,7 @@ export default class Cart extends React.Component {
   }
 
   handleLoad = () => {
-    console.log("NDEx Valet Loaded networks!")
-    console.log(ths.props.cart)
+    this.props.onLoad(this.props.cart.toArray())
   }
 
   render() {
@@ -49,13 +52,13 @@ export default class Cart extends React.Component {
           <p>Your shopping cart is empty.</p> :
           <table>
             <tbody>
-              {cart.map(n => (
+              {cart.map((N,I) => (
                <tr>
                  <td>
                    <FlatButton
-                     label={n.name}
+                     label={N.name}
                      labelPosition="after"
-                     onClick={this.handleRemove.bind(this, n)}
+                     onClick={this.handleRemove.bind(this, I)}
                      icon={<HighlightOff/>}
                    />
                  </td>

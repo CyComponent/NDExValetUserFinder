@@ -76,6 +76,7 @@ export default class TopBar extends React.Component {
           handleClose={this.handleCart}
           cart={this.props.cart}
           cartActions={this.props.cartActions}
+          onLoad={this.props.onLoad}
         />
         <Login
           isOpen={this.state.loginOpen}

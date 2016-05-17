@@ -22,12 +22,13 @@ export default class NDExValet extends React.Component {
           <TopBar
             fields={this.props.fields}
             fieldActions={this.props.fieldActions}
-            cart={this.props.lucene.get('networkSummaries')}
+            cart={this.props.cart}
             cartActions={this.props.cartActions}
             creds={this.props.creds}
             credActions={this.props.credActions}
+            onLoad={this.props.onLoad}
           />
-          <div style= {{ height: '90%' }}>
+          <div style= {{ height: '94%' }}>
             <Search
               fields={this.props.fields}
               lucene={this.props.lucene}
@@ -36,6 +37,7 @@ export default class NDExValet extends React.Component {
             />
            <Result
               lucene={this.props.lucene}
+              cart={this.props.cart}
               cartActions={this.props.cartActions}
             />
           </div>
