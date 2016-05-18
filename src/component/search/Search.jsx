@@ -9,12 +9,19 @@ export default class Search extends React.Component {
 
   constructor(props) {
     super(props)
-    this.handleSearch = this.handleSearch.bind(this)
+    this.plugins = [SearchBox] ++ this.props.plugins
+    this.state = { selected: this.plugins[0] }
   }
 
-  handleSearch() {
+  handleSearch = () => {
     this.props.luceneActions.searchBegin()
     this.props.luceneActions.searchFor(this.props.fields.get('query'))
+  }
+
+  selectPlugin(Plugin) {
+    this.setState({
+      selected: Plugin
+    })
   }
 
   render() {
@@ -37,15 +44,21 @@ export default class Search extends React.Component {
     return (
         <div style={page}>
           <Paper style={boundry} zDepth={2}>
-            <PluginBar/>
+            <PluginBar
+             plugins={plugins}
+             selectedPlugin={this.state.selected}
+             selectPlugin={this.selectPlugin}
+
+             />
             <PluginView
+              plugin={this.state.selected}
               fields={this.props.fields}
               fieldActions={this.props.fieldActions}
             />
           </Paper>
           <RaisedButton
             label="Search"
-            primary={true}
+            secondary={true}
             style={searchButton}
             onClick={this.handleSearch}
           />

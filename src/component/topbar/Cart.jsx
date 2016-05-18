@@ -1,4 +1,5 @@
 import React        from 'react'
+import { List }     from 'immutable'
 import Dialog       from 'material-ui/Dialog'
 import FlatButton   from 'material-ui/FlatButton'
 import HighlightOff from 'material-ui/svg-icons/action/highlight-off'
@@ -10,11 +11,8 @@ export default class Cart extends React.Component {
   }
 
   handleRemove(I) {
-    console.log(I)
-    console.log(this.props.cart)
-    console.log(this.props)
-    console.log(this.props.cart.get(I))
-    this.props.cartActions.deleteNetwork(this.props.cart.get(I))
+    const cartList = List(this.props.cart)
+    this.props.cartActions.deleteNetwork(cartList.get(I))
   }
 
   handleClose = () => {
@@ -22,7 +20,7 @@ export default class Cart extends React.Component {
   }
 
   handleLoad = () => {
-    this.props.onLoad(this.props.cart.toArray())
+    this.props.onLoad(this.props.cart.toJS())
   }
 
   render() {
