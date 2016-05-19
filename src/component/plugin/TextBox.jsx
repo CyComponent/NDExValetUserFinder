@@ -34,6 +34,6 @@ class TextBox extends React.Component {
 }
 
 export default {
-  icon: "circle",
+  iconName: "reorder",
   plugin: TextBox
 }

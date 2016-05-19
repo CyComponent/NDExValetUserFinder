@@ -1,5 +1,6 @@
 import React from 'react'
-import { Toolbar, ToobarGroup } from 'material-ui/Toolbar';
+import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar'
+import FontIcon from 'material-ui/FontIcon'
 
 export default class PluginBar extends React.Component {
 
@@ -9,7 +10,7 @@ export default class PluginBar extends React.Component {
 
   isSelected(P) {
     if (P == this.props.selectedPlugin) {
-      return {backgroundColor: 'black'}
+      return { opacity: '70%' }
     } else {
       return {}
     }

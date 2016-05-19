@@ -10,6 +10,12 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 export default class NDExValet extends React.Component {
 
+  static defaultProps = {
+    plugins: [],
+    vizualizations: [],
+    onLoad: () => {}
+  }
+
   constructor(props) {
     super(props)
   }
@@ -18,7 +24,7 @@ export default class NDExValet extends React.Component {
     const theme = getMuiTheme({})
     return (
       <MuiThemeProvider muiTheme={theme}>
-        <div style={{ height: '100%', width: '100%'}}>
+        <div style={{ height: '100%', width: '100%' }}>
           <TopBar
             fields={this.props.fields}
             fieldActions={this.props.fieldActions}
@@ -30,12 +36,14 @@ export default class NDExValet extends React.Component {
           />
           <div style= {{ height: '94%' }}>
             <Search
+              plugins={this.props.plugins}
               fields={this.props.fields}
               lucene={this.props.lucene}
               fieldActions={this.props.fieldActions}
               luceneActions={this.props.luceneActions}
             />
            <Result
+              vizualizations={this.props.vizualizations}
               lucene={this.props.lucene}
               cart={this.props.cart}
               cartActions={this.props.cartActions}

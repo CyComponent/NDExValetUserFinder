@@ -5,11 +5,13 @@ import RaisedButton from 'material-ui/RaisedButton'
 import PluginBar from './PluginBar'
 import PluginView from './PluginView'
 
+import TextBox from '../plugin/TextBox'
+
 export default class Search extends React.Component {
 
   constructor(props) {
     super(props)
-    this.plugins = [SearchBox] ++ this.props.plugins
+    this.plugins = [TextBox].concat(this.props.plugins)
     this.state = { selected: this.plugins[0] }
   }
 
@@ -45,9 +47,9 @@ export default class Search extends React.Component {
         <div style={page}>
           <Paper style={boundry} zDepth={2}>
             <PluginBar
-             plugins={plugins}
+             plugins={this.plugins}
              selectedPlugin={this.state.selected}
-             selectPlugin={this.selectPlugin}
+             selectPlugin={this.selectPlugin.bind(this)}
 
              />
             <PluginView
