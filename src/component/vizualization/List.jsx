@@ -26,7 +26,7 @@ class List extends React.Component {
     return this.props.cart.has(this.props.networkSummaries.get(I))
   }
 
-  handleSelection = (S) => {
+  handleSelection(S) {
     const ns = this.props.networkSummaries
     S.map((N) => {
       if (!this.props.cart.has(ns.get(N))) {
@@ -49,7 +49,7 @@ class List extends React.Component {
         style={{ height: '100%' }}
         wrapperStyle={{ overflow: 'scroll', height: '100%' }}
         multiSelectable={true}
-        onRowSelection={this.handleSelection}
+        onRowSelection={this.handleSelection.bind(this)}
       >
         <TableHeader>
           <TableRow>

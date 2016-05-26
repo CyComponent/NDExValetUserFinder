@@ -44,6 +44,7 @@ export default class Cart extends React.Component {
         actions={actions}
         modal={false}
         open={this.props.isOpen}
+        onRequestClose={this.handleClose}
         autoScrollBodyContent={true}
       >
         {(cart.length == 0) ?

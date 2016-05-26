@@ -20,9 +20,9 @@ export default class Search extends React.Component {
     this.props.luceneActions.searchFor(this.props.fields.get('query'))
   }
 
-  selectPlugin(Plugin) {
+  selectPlugin(plugin) {
     this.setState({
-      selected: Plugin
+      selected: plugin
     })
   }
 
@@ -53,7 +53,7 @@ export default class Search extends React.Component {
 
              />
             <PluginView
-              plugin={this.state.selected}
+              plugin={this.state.selected.plugin}
               fields={this.props.fields}
               fieldActions={this.props.fieldActions}
             />

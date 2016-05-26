@@ -1,6 +1,8 @@
 var path = require('path');
 
 module.exports = {
+  cache: true,
+  devtool: 'source-map',
   entry: path.resolve(__dirname, "src/NDExValet.js"),
   output: {
     path: path.resolve(__dirname, "build"),

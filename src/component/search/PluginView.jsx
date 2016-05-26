@@ -6,28 +6,10 @@ export default class PluginView extends React.Component {
     super(props)
   }
 
-  handleChange(event) {
-    this.props.fieldActions.updateQuery(event.target.value)
-  }
-
   render() {
-    const style = {
-      margin: '2%',
-      marginBottom: 0,
-      height: '80%',
-      width: '95%',
-      resize: 'none',
-      border: 0,
-      fontSize: 20,
-      overflowY: 'auto'
-    }
+    console.log(this.props.plugin)
     return (
-        <textarea
-          style={style}
-          placeholder="Enter your search terms here..."
-          value={this.props.fields.query}
-          onChange={this.handleChange.bind(this)}
-        />
+      <this.props.plugin {...this.props}/>
     )
   }
 
