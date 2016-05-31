@@ -1,4 +1,5 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   cache: true,
@@ -32,15 +33,19 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        exclude: /node_modules/,
         loaders: ["style", "css", "sass"]
       },
       {
         test: /\.(png|jpg|jpeg|svg)$/,
-        exclude: /node_modules/,
         loaders: ["url"]
       }
-
     ]
-  }
+  },
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ]
 };

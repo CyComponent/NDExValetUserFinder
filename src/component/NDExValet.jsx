@@ -15,17 +15,14 @@ export default class NDExValet extends React.Component {
       width: '100%',
       height: '100%'
     },
+    theme: {},
     plugins: [],
     vizualizations: [],
     onLoad: () => {}
   }
 
-  constructor(props) {
-    super(props)
-  }
-
   render() {
-    const theme = getMuiTheme({})
+    const theme = getMuiTheme(this.props.theme)
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div style={this.props.style}>

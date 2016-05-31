@@ -1,7 +1,18 @@
 {
   "name": "NDExValet",
+  "author": "Eric Sage",
   "version": "v0.0.17",
   "description": "Find NDEx networks with ease.",
+  "license": "MIT",
+  "keywords": [],
+  "main": "build/finder.js",
+  "files": [
+    "webpack.config.js",
+    ".preprocessor.js",
+    ".travis.yml",
+    "build/*",
+    "src/*"
+  ],
   "scripts": {
     "build": "webpack --progress --colors",
     "clean": "rm build/NDExValet.js",
@@ -9,44 +20,19 @@
     "test": "eslint src/ && jest",
     "coverage": "jest --coverage"
   },
-  "main": "build/finder.js",
-  "jest": {
-    "scriptPreprocessor": "<rootDir>/.preprocessor.js"
-  },
+  "homepage": "https://github.com/CyComponent/NDExValet",
   "repository": {
     "type": "git",
     "url": "https://github.com/CyComponent/NDExValet.git"
   },
-  "keywords": [],
-  "author": "Eric Sage",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/CyComponent/NDExValet/issues"
   },
-  "homepage": "https://github.com/CyComponent/NDExValet",
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "eslint:recommended",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    },
-    "env": {
-      "es6": true,
-      "browser": true
-    }
-  },
-  "files": [
-    "build",
-    "src"
-  ],
-  "dependencies": {
-    "babel-preset-stage-0": "^6.5.0",
+   "dependencies": {
     "immutable": "^3.7.6",
     "material-ui": "^0.15.0",
     "react-redux": "^4.4.0",
     "react-tap-event-plugin": "^1.0.0",
-    "reactable": "^0.13.0",
     "redux": "^3.3.1"
   },
   "peerDependencies": {
@@ -58,6 +44,7 @@
     "babel-eslint": "^4.1.8",
     "babel-jest": "^6.0.1",
     "babel-loader": "^6.2.0",
+    "babel-preset-stage-0": "^6.5.0",
     "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.5.0",
     "css-loader": "^0.23.0",
@@ -71,5 +58,20 @@
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.13"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/.preprocessor.js"
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    },
+    "env": {
+      "es6": true,
+      "browser": true
+    }
   }
 }
