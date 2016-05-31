@@ -22,14 +22,20 @@ export default class TopBar extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = { cartOpen: false, loginOpen: false }
+    this.handleCart = this.handleCart.bind(this)
+    this.handleLogin = this.handleLogin.bind(this)
+    this.state = { cartOpen: false, loginOpen: false, anchorEl: null }
   }
 
-  handleCart = () => {
+  handleCart() {
+    console.log("Handle Cart")
+    console.log(this.state)
     this.setState({ cartOpen: !this.state.cartOpen })
   }
 
-  handleLogin = (event) => {
+  handleLogin(event) {
+    console.log("Handle Login")
+    console.log(this.state)
     this.setState({
       loginOpen: !this.state.loginOpen,
       anchorEl: event ? event.currentTarget : null
@@ -56,7 +62,7 @@ export default class TopBar extends React.Component {
     const credButton = this.getCredButton(this.props.creds.get('loggedIn'))
     return (
       <AppBar
-        title="Network Cart"
+        title={this.props.cart.size}
         iconElementLeft={
           <IconButton onClick={this.handleCart}>
             <CartIcon/>

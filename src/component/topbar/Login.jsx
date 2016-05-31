@@ -30,23 +30,27 @@ export default class Login extends React.Component {
     this.props.handleClose()
   }
 
+  cancel() {
+    this.props.handleClose()
+  }
+
   render() {
     return (
       <Popover
        open={this.props.isOpen}
+       modal={true}
        anchorEl={this.props.anchorEl}
-       onRequestClose={this.props.handleClose}
       >
         <div style={{ margin: 30 }}>
           <TextField
-            value={this.props.fields.name}
+            value={this.props.fields.get('name')}
             type="username"
             hintText="Username"
             fullWidth={true}
             onChange={this.handleUser.bind(this)}
           />
           <TextField
-            value={this.props.fields.pass}
+            value={this.props.fields.get('pass')}
             type="password"
             hintText="Password"
             onChange={this.handlePass.bind(this)}
@@ -54,8 +58,14 @@ export default class Login extends React.Component {
           />
           <RaisedButton
             label="Login"
-            secondary={true}
+            primary={true}
             onClick={this.login.bind(this)}
+            style={{ width: "100%" }}
+          />
+          <RaisedButton
+            label="Cancel"
+            secondary={true}
+            onClick={this.cancel.bind(this)}
             style={{ width: "100%" }}
           />
         </div>

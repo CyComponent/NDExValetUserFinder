@@ -21,7 +21,7 @@ class TextBox extends React.Component {
         <textarea
           style={style}
           placeholder="Enter your search terms here..."
-          value={this.props.fields.query}
+          value={this.props.fields.get('query')}
           onChange={this.handleChange.bind(this)}
         />
     )

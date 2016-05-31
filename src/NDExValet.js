@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 import NDExValet from './component/NDExValet'
 
 import fields, * as fieldActions from './store/fields'
+import cart, * as cartActions from './store/cart'
 
 //Make these third party deps
-import * as cartActions from './store/cart'
 import * as luceneActions from './store/lucene'
 import * as credentialActions from './store/credentials'
 
@@ -18,7 +18,7 @@ require("./style/app.scss")
 function mapStateToProps(state) {
   return {
     fields: state.valet.fields,
-    cart: state.ndex.cart,
+    cart: state.valet.cart,
     creds: state.ndex.credentials,
     lucene: state.ndex.lucene
   }
@@ -40,10 +40,12 @@ const component = connect(
 
 const storeName = 'valet'
 
-const store = { fields }
+const store = { fields, cart }
 
 export {
   component,
   storeName,
-  store
+  store,
+  cartActions,
+  fieldActions
 }
