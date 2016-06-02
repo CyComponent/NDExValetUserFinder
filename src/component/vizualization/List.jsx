@@ -83,8 +83,8 @@ class List extends React.Component {
 }
 
 const ListViz = {
-  vizName: 'reorder',
-  viz: List
+  iconName: 'reorder',
+  plugin: List
 }
 
 export default ListViz
