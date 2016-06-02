@@ -32,7 +32,7 @@ module.exports = {
         loaders: ['babel?presets[]=es2015&presets[]=stage-0&presets[]=react']
       },
       {
-        test: /\.scss$/,
+        test: /\.s?css$/,
         loaders: ["style", "css", "sass"]
       },
       {

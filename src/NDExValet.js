@@ -13,7 +13,8 @@ import * as credentialActions from './store/credentials'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-require("./style/valet.scss")
+import './style/valet.scss'
+import 'react-virtualized/styles.css'
 
 function mapStateToProps(state) {
   return {

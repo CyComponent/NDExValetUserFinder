@@ -4,6 +4,7 @@ import { Tab, Tabs } from 'material-ui/Tabs'
 import { Toolbar, ToolbarGroup } from 'material-ui/Toolbar';
 
 import ListViz from '../vizualization/List'
+import TableViz from '../vizualization/Table'
 import Spinner from '../vizualization/Spinner'
 
 export default class Result extends React.Component {

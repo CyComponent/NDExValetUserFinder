@@ -4,10 +4,6 @@ import FontIcon from 'material-ui/FontIcon'
 
 export default class PluginBar extends React.Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   isSelected(P) {
     if (P == this.props.selectedPlugin) {
       return { opacity: '70%' }

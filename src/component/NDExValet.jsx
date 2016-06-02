@@ -16,7 +16,7 @@ export default class NDExValet extends React.Component {
       height: '100%'
     },
     theme: {},
-    plugins: [],
+    filters: [],
     vizualizations: [],
     onLoad: () => {}
   }
@@ -37,7 +37,7 @@ export default class NDExValet extends React.Component {
           />
           <div style= {{ height: '94%' }}>
             <Search
-              plugins={this.props.plugins}
+              filters={this.props.filters}
               fields={this.props.fields}
               lucene={this.props.lucene}
               fieldActions={this.props.fieldActions}
