@@ -1,6 +1,8 @@
 
 import React from 'react'
 
+import { Map } from 'immutable'
+
 import {
   BootstrapTable,
   TableHeaderColumn
@@ -15,50 +17,55 @@ class Table extends React.Component {
   }
 
   getSelectedRows() {
-    this.props.cart.networkSummaries.map(N => {
-      return N.externalId
+    console.log("Called get selected")
+    const cart = this.props.cart.toJS()
+    return cart.map(N => {
+      return N.name
     })
   }
 
-  handleSelection(S, isSelected) {
-    if (isSelected) {
-      this.props.cartActions.deleteNetwork(S)
+  handleSelection(NWS, NW, isSelected) {
+    const index = NWS.indexOf(NW)
+    const network = this.props.networkSummaries.get(index)
+    if (!isSelected) {
+      this.props.cartActions.deleteNetwork(network)
     } else {
-      this.props.cartActions.addNetwork(S)
+      this.props.cartActions.addNetwork(network)
     }
   }
 
   render() {
     const networkSummaries = this.props.networkSummaries.toJS()
-    const tableStyle = {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: "100%",
-      justifyContent: 'space-around',
-      overflow: 'scroll'
-    }
+    var networks = networkSummaries.map(N => {
+      N.modificationTime = this.time(N.modificationTime)
+      N.creationTime = this.time(N.creationTime)
+      return N
+    })
     const selectRow = {
       mode: 'checkbox',
-      onSelect: this.handleSelection,
-      selected: this.state.selectedRows()
+      onSelect: this.handleSelection.bind(this, networkSummaries),
+      selected: this.getSelectedRows(),
+      search: true,
+      multiColumnSearch: true,
+      striped: true
     }
     return (
       <BootstrapTable data={networks} selectRow={selectRow}>
-        <TableHeaderColumn dataField="externalId" isKey={true} dataSort={true}>ID</TableHeaderColumn>
-        <TableHeaderColumn dataField="name" dataSort={true}>Name</TableHeaderColumn>
+        <TableHeaderColumn dataField="name" width="400px" isKey={true} dataSort={true}>Name</TableHeaderColumn>
         <TableHeaderColumn dataField="owner" dataSort={true}>Owner</TableHeaderColumn>
+        <TableHeaderColumn dataField="visibility" dataSort={true}>Visibility</TableHeaderColumn>
         <TableHeaderColumn dataField="edgeCount" dataSort={true}>Edges</TableHeaderColumn>
         <TableHeaderColumn dataField="nodeCount" dataSort={true}>Nodes</TableHeaderColumn>
-        <TableHeaderColumn dataField="creationTime" dataSort={true}>Created</TableHeaderColumn>
-        <TableHeaderColumn dataField="modificationTime" dataSort={true}>Modified</TableHeaderColumn>
+        <TableHeaderColumn dataField="creationTime" width="120px" dataSort={true}>Created</TableHeaderColumn>
+        <TableHeaderColumn dataField="modificationTime" width="120px" dataSort={true}>Modified</TableHeaderColumn>
       </BootstrapTable>
     )
   }
 }
 
 const TableViz = {
-  vizName: 'reorder',
-  viz: Table
+  iconName: 'reorder',
+  plugin: Table
 }
 
 export default TableViz

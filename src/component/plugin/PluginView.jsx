@@ -7,9 +7,14 @@ export default class PluginView extends React.Component {
   }
 
   render() {
-    console.log(this.props.plugin)
+    const containerStyle = {
+      height: '85%',
+      overflow: 'scroll'
+    }
     return (
-      <this.props.plugin {...this.props}/>
+      <div style={containerStyle}>
+        <this.props.plugin {...this.props}/>
+      </div>
     )
   }
 

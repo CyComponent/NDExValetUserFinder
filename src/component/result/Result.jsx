@@ -11,7 +11,7 @@ export default class Result extends React.Component {
 
   constructor(props) {
     super(props)
-    this.vizualizations = [ListViz].concat(this.props.vizualizations)
+    this.vizualizations = [ListViz, TableViz].concat(this.props.vizualizations)
   }
 
   render() {

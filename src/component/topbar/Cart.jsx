@@ -25,6 +25,8 @@ export default class Cart extends React.Component {
 
   handleLoad = () => {
     this.props.onLoad(this.props.cart.toJS())
+    this.handleClear()
+    this.handleClose()
   }
 
   render() {

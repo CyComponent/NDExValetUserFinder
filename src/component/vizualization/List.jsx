@@ -37,17 +37,8 @@ class List extends React.Component {
 
   render() {
     const networkSummaries = this.props.networkSummaries.toJS()
-    const tableStyle = {
-      display: 'flex',
-      flexWrap: 'wrap',
-      width: "100%",
-      justifyContent: 'space-around',
-      overflow: 'scroll'
-    }
     return (
       <Table
-        style={{ height: '100%' }}
-        wrapperStyle={{ overflow: 'scroll', height: '100%' }}
         multiSelectable={true}
         onRowSelection={this.handleSelection.bind(this)}
       >

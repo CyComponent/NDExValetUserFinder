@@ -14,7 +14,6 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
 import './style/valet.scss'
-import 'react-virtualized/styles.css'
 
 function mapStateToProps(state) {
   return {
