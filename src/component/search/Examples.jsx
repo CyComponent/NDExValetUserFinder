@@ -43,11 +43,11 @@ export default class Examples extends React.Component {
       ["Created between 1/1/16 and 4/27/19", "creationTime:[2016-01-01T00:00:01Z TO 2016-04-27T23:59:59Z]"]
     ]
     return (
-      <div>
+      <div style={this.props.style}>
         <RaisedButton
-          style={this.props.style}
           onClick={this.handleTouchTap}
           label="Choose example query"
+          style={{ width: '90%', margin: '5%' }}
         />
         <Popover
           open={this.state.open}

@@ -63,6 +63,7 @@ export default class TopBar extends React.Component {
     return (
       <AppBar
         title={this.props.cart.size}
+        style={{ height: '100%' }}
         iconElementLeft={
           <IconButton onClick={this.handleCart}>
             <CartIcon/>

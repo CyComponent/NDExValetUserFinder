@@ -22,9 +22,12 @@ export default class PluginViewer extends React.Component {
   }
 
   render() {
+    const pluginStyle = {
+      height: '100%'
+    }
     var { plugins, ...other } = this.props
     return (
-      <div>
+      <div style={pluginStyle}>
         <PluginBar
          plugins={plugins}
          selectedPlugin={this.state.selected}

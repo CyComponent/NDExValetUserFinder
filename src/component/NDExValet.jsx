@@ -13,7 +13,8 @@ export default class NDExValet extends React.Component {
   static defaultProps = {
     style: {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      overflow: 'hidden'
     },
     theme: {},
     filters: [],
@@ -26,15 +27,17 @@ export default class NDExValet extends React.Component {
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div style={this.props.style}>
-          <TopBar
-            fields={this.props.fields}
-            fieldActions={this.props.fieldActions}
-            cart={this.props.cart}
-            cartActions={this.props.cartActions}
-            creds={this.props.creds}
-            credActions={this.props.credActions}
-            onLoad={this.props.onLoad}
-          />
+          <div style= {{ height: '6%' }}>
+            <TopBar
+              fields={this.props.fields}
+              fieldActions={this.props.fieldActions}
+              cart={this.props.cart}
+              cartActions={this.props.cartActions}
+              creds={this.props.creds}
+              credActions={this.props.credActions}
+              onLoad={this.props.onLoad}
+            />
+          </div>
           <div style= {{ height: '94%' }}>
             <Search
               filters={this.props.filters}

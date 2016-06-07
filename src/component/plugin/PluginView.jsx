@@ -8,8 +8,8 @@ export default class PluginView extends React.Component {
 
   render() {
     const containerStyle = {
-      height: '85%',
-      overflow: 'scroll'
+      height: '95%',
+      overflow: 'hidden'
     }
     return (
       <div style={containerStyle}>
