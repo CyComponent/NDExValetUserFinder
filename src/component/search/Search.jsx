@@ -2,16 +2,17 @@ import React from 'react'
 import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton'
 
+import Examples from './Examples'
+
 import PluginViewer from '../plugin/PluginViewer'
 
 import TextBox from '../filter/TextBox'
-import NetworkForm from '../filter/NetworkForm'
 
 export default class Search extends React.Component {
 
   constructor(props) {
     super(props)
-    this.filters = [TextBox, NetworkForm].concat(this.props.filters)
+    this.filters = [TextBox].concat(this.props.filters)
   }
 
   handleSearch = () => {
@@ -28,16 +29,20 @@ export default class Search extends React.Component {
     const boundry = {
       height: '85%',
       width: '90%',
-      margin: '5%',
-      marginBottom: '4%'
+      marginLeft: '5%',
+      marginRight: '5%'
     }
-    const searchButton = {
+    const button = {
       width: '90%',
-      margin: '5%',
-      marginTop: 0
+      margin: '5%'
     }
     return (
         <div style={page}>
+          <Examples
+            fieldActions={this.props.fieldActions}
+            luceneActions={this.props.luceneActions}
+            style={button}
+          />
           <Paper style={boundry} zDepth={2}>
             <PluginViewer
               plugins={this.filters}
@@ -48,7 +53,7 @@ export default class Search extends React.Component {
           <RaisedButton
             label="Search"
             secondary={true}
-            style={searchButton}
+            style={button}
             onClick={this.handleSearch}
           />
         </div>
