@@ -9,6 +9,7 @@ import {
 } from 'react-bootstrap-table'
 
 import 'react-bootstrap-table/css/react-bootstrap-table.css'
+import '../../style/react-bootstrap-table-helper'
 
 class Table extends React.Component {
 
@@ -52,63 +53,65 @@ class Table extends React.Component {
       striped: true
     }
     return (
-      <BootstrapTable
-        data={networks}
-        selectRow={selectRow}
-        striped={true}
-        height='100%'
-        pagination={true}
-        columnFilter={true}
-      >
-        <TableHeaderColumn dataField="name"
-          width="400px"
-          isKey={true}
-          dataSort={true}
+      <div style={{ height: '80%' }}>
+        <BootstrapTable
+          data={networks}
+          selectRow={selectRow}
+          striped={true}
+          pagination={true}
+          height="95%"
           columnFilter={true}
         >
-          Name
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="owner"
-          dataSort={true}
-          columnFilter={true}
-        >
-          Owner
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="visibility"
-          dataSort={true}
-          columnFilter={true}
-        >
-          Visibility
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="edgeCount"
-          dataSort={true}
-        >
-          Edges
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="nodeCount"
-          dataSort={true}
-        >
-          Nodes
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="creationTime"
-          width="120px"
-          dataSort={true}
-        >
-          Created
-        </TableHeaderColumn>
-        <TableHeaderColumn
-          dataField="modificationTime"
-          width="120px"
-          dataSort={true}
-        >
-          Modified
-        </TableHeaderColumn>
-      </BootstrapTable>
+          <TableHeaderColumn dataField="name"
+            width="400px"
+            isKey={true}
+            dataSort={true}
+            columnFilter={true}
+          >
+            Name
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="owner"
+            dataSort={true}
+            columnFilter={true}
+          >
+            Owner
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="visibility"
+            dataSort={true}
+            columnFilter={true}
+          >
+            Visibility
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="edgeCount"
+            dataSort={true}
+          >
+            Edges
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="nodeCount"
+            dataSort={true}
+          >
+            Nodes
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="creationTime"
+            width="120px"
+            dataSort={true}
+          >
+            Created
+          </TableHeaderColumn>
+          <TableHeaderColumn
+            dataField="modificationTime"
+            width="120px"
+            dataSort={true}
+          >
+            Modified
+          </TableHeaderColumn>
+        </BootstrapTable>
+      </div>
     )
   }
 }

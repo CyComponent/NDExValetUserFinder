@@ -17,13 +17,12 @@ export default class PluginBar extends React.Component {
   }
 
   render() {
-    const barStyle = {
-      height: '5%'
-    }
     return (
-      <div style={barStyle}>
+      <div style={this.props.style}>
         <Toolbar>
-          <ToolbarGroup firstChild={true}>
+          <ToolbarGroup
+            firstChild={true}
+          >
             {this.props.plugins.map(P => (
               <FontIcon
                 className='material-icons'

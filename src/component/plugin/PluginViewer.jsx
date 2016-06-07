@@ -29,11 +29,13 @@ export default class PluginViewer extends React.Component {
     return (
       <div style={pluginStyle}>
         <PluginBar
+         style={{ height: '8%' }}
          plugins={plugins}
          selectedPlugin={this.state.selected}
          selectPlugin={this.selectPlugin.bind(this)}
         />
         <PluginView
+          style={{ height: '92%' }}
           plugin={this.state.selected.plugin}
           {...other}
         />

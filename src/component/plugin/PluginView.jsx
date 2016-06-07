@@ -7,13 +7,9 @@ export default class PluginView extends React.Component {
   }
 
   render() {
-    const containerStyle = {
-      height: '95%',
-      overflow: 'hidden'
-    }
     return (
-      <div style={containerStyle}>
-        <this.props.plugin {...this.props}/>
+      <div style={this.props.style}>
+        <this.props.plugin {...this.props} style={{ height: '100%' }}/>
       </div>
     )
   }
