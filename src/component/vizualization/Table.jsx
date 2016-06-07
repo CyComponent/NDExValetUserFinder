@@ -19,6 +19,22 @@ class Table extends React.Component {
     return d.toLocaleDateString()
   }
 
+  modSortFunc(a, b, order) {
+    if (order == "asc") {
+      return a.modificationTime - b.modificationTime
+    } else  {
+      return b.modificationTime - a.modificationTime
+    }
+  }
+
+  createSortFunc(a, b, order) {
+    if (order == "asc") {
+      return a.creationTime - b.creationTime
+    } else  {
+      return b.creationTime - a.creationTime
+    }
+  }
+
   getSelectedRows() {
     console.log("Called get selected")
     const cart = this.props.cart.toJS()
@@ -40,8 +56,8 @@ class Table extends React.Component {
   render() {
     const networkSummaries = this.props.networkSummaries.toJS()
     var networks = networkSummaries.map(N => {
-      N.modificationTime = this.time(N.modificationTime)
-      N.creationTime = this.time(N.creationTime)
+      N.modificationDate = this.time(N.modificationTime)
+      N.creationDate = this.time(N.creationTime)
       return N
     })
     const selectRow = {
@@ -97,16 +113,18 @@ class Table extends React.Component {
             Nodes
           </TableHeaderColumn>
           <TableHeaderColumn
-            dataField="creationTime"
+            dataField="creationDate"
             width="120px"
             dataSort={true}
+            sortFunc={this.createSortFunc.bind(this)}
           >
             Created
           </TableHeaderColumn>
           <TableHeaderColumn
-            dataField="modificationTime"
+            dataField="modificationDate"
             width="120px"
             dataSort={true}
+            sortFunc={this.modSortFunc.bind(this)}
           >
             Modified
           </TableHeaderColumn>
