@@ -1,31 +1,47 @@
 
-React Redux Scaffold
-====================
-A react and redux scaffold
+NDEX Valet
+==========
+Browse and select NDEx networks through custom search queries
 
-####Contains:
-- React
-- Redux
-- Webpack
-- Babel
-- ESLint
-- Jest
-- Sass
-- Dockerfile
-- Travis
-
-Getting Started
----------------
-The package.json containers blank fields specific to a project. Customize lint rules in the `eslintConfig` section. Build an app by replacing the empty container and component and add reducers and reducer actions. Install Redux and React Chrome extensions for application introspection.
-
-Commands
---------
+####Usage:
 ```
-npm run dev - Run app on localhost, port 8080
-npm run serve - Serve the app oover all interfaces on port 8080
-npm run build - Build the app into /build/app.js
-npm run clean - Remove the /build/app.js
-npm run lint - Run eslint, will not cause npm to exit with an error
-npm run test - Run eslint followed by jest, may cause npm to exit with an error (for travis)
-npm run coverage - Run jest's coverage tool
+<html>
+
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-with-addons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.2/react-dom.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+
+  <script src="CyFramework/build/CyFramework.js"></script>
+    <script src="NDExStore/build/NDExStore.js"></script>
+    <script src="NDExValet/build/NDExValet.js"></script>
+  </head>
+
+  <body>
+    <div id='valet'></div>
+    <script>
+      var cyto = CyFramework.config([NDExStore, NDExValet])
+      
+      cyto.render(NDExValet, document.getElementById('valet'), {
+        style: {
+          height: '80%',
+          width: '90%'
+        },
+        onLoad: function(networkList) {}
+      })
+    </script>
+  </body>
+
+</html>
 ```
+
+Parameters
+----------
+- style: Override default css styles for Valet container
+- onLoad: a function with a list of networks as a parameter. Called when load networks is clicked in the cart.
