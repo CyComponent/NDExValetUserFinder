@@ -10,9 +10,6 @@ import cart, * as cartActions from './store/cart'
 import * as luceneActions from './store/lucene'
 import * as credentialActions from './store/credentials'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
-
 import './style/valet.scss'
 
 function mapStateToProps(state) {

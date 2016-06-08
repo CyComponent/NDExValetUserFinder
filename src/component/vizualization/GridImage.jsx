@@ -1,4 +1,5 @@
 
+import {GridList, GridTile} from 'material-ui/GridList'
 import DropDownMenu from 'material-ui/DropDownMenu'
 import MenuItem from 'material-ui/MenuItem'
 import React from 'react'
@@ -14,7 +15,7 @@ import {
 
 import RaisedButton from 'material-ui/RaisedButton'
 
-class Image extends React.Component {
+class Grid extends React.Component {
 
   constructor(props) {
     super(props)
@@ -37,6 +38,8 @@ class Image extends React.Component {
     networks.sort(function(a, b) {
       return a[sortOn] > b[sortOn]
     })
+    console.log("sorted")
+    console.log(networks)
     return networks
   }
 
@@ -75,34 +78,37 @@ class Image extends React.Component {
          />
        </div>
        <div style={{ overflow: 'scroll', height: '95%' }}>
-         {sortedNetworks.map(N => (
-            <Card style={{ margin: "20"}}>
-              <CardHeader
-                title={"Created on " + N.creationTime}
-                subtitle={"Modified on " + N.modificationTime}
-              />
-              <CardMedia/>
-              <CardTitle title={N.name} subtitle={N.owner}/>
-              <CardText>{N.description}</CardText>
-              <CardActions>
-                <RaisedButton
-                  label="Add to Cart"
-                  primary={true}
-                  onClick={this.handleSelection.bind(this, networks, N)}
-                />
-              </CardActions>
-            </Card>
-            )
-          )}
+           <GridList cellHeight={350}>
+           {sortedNetworks.map(N => (
+              <GridTile key={N.name}>
+                <Card style={{ margin: "20"}}>
+                  <CardHeader
+                    title={"Created on " + N.creationTime}
+                    subtitle={"Modified on " + N.modificationTime}
+                  />
+                  <CardMedia/>
+                  <CardTitle title={N.name} subtitle={N.owner}/>
+                  <CardActions>
+                    <RaisedButton
+                      label="Add to Cart"
+                      primary={true}
+                      onClick={this.handleSelection.bind(this, networks, N)}
+                    />
+                  </CardActions>
+                </Card>
+              </GridTile>
+              )
+            )}
+          </GridList>
         </div>
       </div>
     )
   }
 }
 
-const ImageViz = {
-  iconName: 'view_stream',
-  plugin: Image
+const GridImageViz = {
+  iconName: 'view_module',
+  plugin: Grid
 }
 
-export default ImageViz
+export default GridImageViz

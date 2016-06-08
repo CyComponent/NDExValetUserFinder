@@ -74,7 +74,6 @@ class Table extends React.Component {
           data={networks}
           selectRow={selectRow}
           striped={true}
-          pagination={true}
           height="95%"
           columnFilter={true}
         >

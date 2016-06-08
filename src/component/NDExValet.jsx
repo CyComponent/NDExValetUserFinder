@@ -8,6 +8,9 @@ import Result from './result/Result'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
+
 export default class NDExValet extends React.Component {
 
   static defaultProps = {
