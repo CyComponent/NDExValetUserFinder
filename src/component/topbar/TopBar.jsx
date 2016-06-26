@@ -16,14 +16,12 @@ import PopOver     from 'material-ui/Popover'
 import Dialog      from 'material-ui/Dialog'
 import Badge       from 'material-ui/Badge';
 import Cart        from './Cart'
-import Login       from './Login'
 
 export default class TopBar extends React.Component {
 
   constructor(props) {
     super(props)
     this.handleCart = this.handleCart.bind(this)
-    this.handleLogin = this.handleLogin.bind(this)
     this.state = { cartOpen: false, loginOpen: false, anchorEl: null }
   }
 
@@ -33,33 +31,7 @@ export default class TopBar extends React.Component {
     this.setState({ cartOpen: !this.state.cartOpen })
   }
 
-  handleLogin(event) {
-    console.log("Handle Login")
-    console.log(this.state)
-    this.setState({
-      loginOpen: !this.state.loginOpen,
-      anchorEl: event ? event.currentTarget : null
-    })
-  }
-
-  handleLogout = () => {
-    this.props.credActions.logout()
-  }
-
-  getCredButton(loggedIn) {
-    return loggedIn ? {
-      label: this.props.creds.get('name'),
-      click: this.handleLogout,
-      icon: LogoutIcon
-    } : {
-      label: "Login",
-      click: this.handleLogin,
-      icon: AccountIcon
-    }
-  }
-
   render() {
-    const credButton = this.getCredButton(this.props.creds.get('loggedIn'))
     return (
       <AppBar
         title={this.props.cart.size}
@@ -69,14 +41,6 @@ export default class TopBar extends React.Component {
             <CartIcon/>
           </IconButton>
         }
-        iconElementRight={
-          <FlatButton
-            label={credButton.label}
-            labelPosition="after"
-            onClick={credButton.click}
-            icon={<credButton.icon/>}
-          />
-        }
       >
         <Cart
           isOpen={this.state.cartOpen}
@@ -84,15 +48,6 @@ export default class TopBar extends React.Component {
           cart={this.props.cart}
           cartActions={this.props.cartActions}
           onLoad={this.props.onLoad}
-        />
-        <Login
-          isOpen={this.state.loginOpen}
-          handleClose={this.handleLogin}
-          anchorEl={this.state.anchorEl}
-          fields={this.props.fields}
-          fieldActions={this.props.fieldActions}
-          creds={this.props.creds}
-          credActions={this.props.credActions}
         />
       </AppBar>
     )

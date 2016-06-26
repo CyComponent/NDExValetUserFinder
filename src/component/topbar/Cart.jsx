@@ -23,8 +23,8 @@ export default class Cart extends React.Component {
     this.props.handleClose()
   }
 
-  handleLoad = () => {
-    this.props.onLoad(this.props.cart.toJS())
+  handleLoad(singleCatagory) {
+    this.props.onLoad(this.props.cart.toJS(), singleCatagory)
     this.handleClear()
     this.handleClose()
   }
@@ -39,7 +39,12 @@ export default class Cart extends React.Component {
       <FlatButton
         label="Load Networks"
         secondary={true}
-        onClick={this.handleLoad}
+        onClick={this.handleLoad.bind(this, false)}
+      />,
+      <FlatButton
+        label="Load Networks as single collection"
+        secondary={true}
+        onClick={this.handleLoad.bind(this, true)}
       />,
       <FlatButton
         label="Close Cart"

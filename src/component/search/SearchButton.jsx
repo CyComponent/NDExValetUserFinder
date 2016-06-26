@@ -6,7 +6,10 @@ export default class SearchButton extends React.Component {
 
   handleSearch = () => {
     this.props.luceneActions.searchBegin()
-    this.props.luceneActions.searchFor(this.props.fields.get('query'))
+    this.props.luceneActions.searchFor(
+      this.props.server.toJS(),
+      this.props.fields.get('query')
+    )
   }
 
   render() {

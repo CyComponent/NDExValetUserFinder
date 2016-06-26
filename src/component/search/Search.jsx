@@ -48,6 +48,7 @@ export default class Search extends React.Component {
           <SearchButton
             fields={this.props.fields}
             luceneActions={this.props.luceneActions}
+            server={this.props.server}
             style={button}
           />
         </div>

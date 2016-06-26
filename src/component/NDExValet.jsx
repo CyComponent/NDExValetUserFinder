@@ -36,8 +36,6 @@ export default class NDExValet extends React.Component {
               fieldActions={this.props.fieldActions}
               cart={this.props.cart}
               cartActions={this.props.cartActions}
-              creds={this.props.creds}
-              credActions={this.props.credActions}
               onLoad={this.props.onLoad}
             />
           </div>
@@ -46,6 +44,7 @@ export default class NDExValet extends React.Component {
               filters={this.props.filters}
               fields={this.props.fields}
               lucene={this.props.lucene}
+              server={this.props.server}
               fieldActions={this.props.fieldActions}
               luceneActions={this.props.luceneActions}
             />

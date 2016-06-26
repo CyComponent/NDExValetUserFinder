@@ -8,15 +8,15 @@ import cart, * as cartActions from './store/cart'
 
 //Make these third party deps
 import * as luceneActions from './store/lucene'
-import * as credentialActions from './store/credentials'
 
 import './style/valet.scss'
+import './style/react-bootstrap-table-helper.scss'
 
 function mapStateToProps(state) {
   return {
     fields: state.valet.fields,
     cart: state.valet.cart,
-    creds: state.ndex.credentials,
+    server: state.ndex.server,
     lucene: state.ndex.lucene
   }
 }
@@ -25,8 +25,7 @@ function mapDispatchToProps(dispatch) {
   return {
     fieldActions: bindActionCreators(fieldActions, dispatch),
     cartActions: bindActionCreators(cartActions, dispatch),
-    luceneActions: bindActionCreators(luceneActions, dispatch),
-    credActions: bindActionCreators(credentialActions, dispatch)
+    luceneActions: bindActionCreators(luceneActions, dispatch)
   }
 }
 
