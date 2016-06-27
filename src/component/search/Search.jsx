@@ -36,6 +36,7 @@ export default class Search extends React.Component {
           <Examples
             fieldActions={this.props.fieldActions}
             luceneActions={this.props.luceneActions}
+            server={this.props.server}
             style={button}
           />
           <Paper style={boundry} zDepth={2}>
