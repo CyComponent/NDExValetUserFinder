@@ -39,7 +39,7 @@ class Table extends React.Component {
     console.log("Called get selected")
     const cart = this.props.cart.toJS()
     return cart.map(N => {
-      return N.name
+      return N.externalId
     })
   }
 
@@ -77,9 +77,17 @@ class Table extends React.Component {
           height="95%"
           columnFilter={true}
         >
+          <TableHeaderColumn dataField="externalId"
+            width="400px"
+            hidden={true}
+            isKey={true}
+            dataSort={true}
+            columnFilter={true}
+          >
+            ID
+          </TableHeaderColumn>
           <TableHeaderColumn dataField="name"
             width="400px"
-            isKey={true}
             dataSort={true}
             columnFilter={true}
           >
