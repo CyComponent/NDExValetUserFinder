@@ -29,7 +29,7 @@ export default class Examples extends React.Component {
   onClick(value) {
     this.props.fieldActions.updateQuery(value)
     this.props.luceneActions.searchBegin()
-    this.props.luceneActions.searchFor(value)
+    this.props.luceneActions.searchFor(this.props.server.toJS(), value)
     this.handleRequestClose()
   }
 
