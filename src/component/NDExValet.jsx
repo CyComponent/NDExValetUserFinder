@@ -30,7 +30,7 @@ export default class NDExValet extends React.Component {
     return (
       <MuiThemeProvider muiTheme={theme}>
         <div style={this.props.style}>
-          <div style= {{ height: '6%' }}>
+          <div>
             <TopBar
               fields={this.props.fields}
               fieldActions={this.props.fieldActions}
@@ -39,7 +39,7 @@ export default class NDExValet extends React.Component {
               onLoad={this.props.onLoad}
             />
           </div>
-          <div style= {{ height: '94%' }}>
+          <div id="content">
             <Search
               filters={this.props.filters}
               fields={this.props.fields}
