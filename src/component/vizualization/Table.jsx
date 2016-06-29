@@ -69,7 +69,7 @@ class Table extends React.Component {
       striped: true
     }
     return (
-      <div style={{ height: '80%' }}>
+      <div style={{ height: '95%' }}>
         <BootstrapTable
           data={networks}
           selectRow={selectRow}

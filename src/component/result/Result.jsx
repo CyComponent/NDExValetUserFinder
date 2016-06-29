@@ -25,12 +25,14 @@ export default class Result extends React.Component {
       <div style={style}>
         <Tabs>
           <Tab label="Search Results">
-            <PluginViewer
-              plugins={this.vizualizations}
-              networkSummaries={this.props.lucene.get('networkSummaries')}
-              cart={this.props.cart}
-              cartActions={this.props.cartActions}
-            />
+            <div id="viz">
+              <PluginViewer
+                plugins={this.vizualizations}
+                networkSummaries={this.props.lucene.get('networkSummaries')}
+                cart={this.props.cart}
+                cartActions={this.props.cartActions}
+              />
+            </div>
           </Tab>
         </Tabs>
       </div>
@@ -38,6 +40,3 @@ export default class Result extends React.Component {
   }
 
 }
-
-
-
