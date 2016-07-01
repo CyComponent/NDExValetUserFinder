@@ -13,3 +13,7 @@ textarea:focus {
 #viz {
   height: calc(100% - 48px);
 }
+
+img:after {
+  display: none;
+}

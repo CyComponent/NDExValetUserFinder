@@ -82,10 +82,7 @@ class Image extends React.Component {
                 subtitle={"Modified on " + N.modificationTime}
               />
               <CardMedia>
-                <img
-                  src={"http://52.35.119.46:8080/" + N.externalId + ".png"}
-                  style={{ width: '50%', height: '60%', minWidth: 0, marginLeft: '25%' }}
-                />
+                <NetworkImage N={N}/>
               </CardMedia>
               <CardTitle title={N.name} subtitle={N.owner}/>
               <CardText>{N.description}</CardText>
@@ -104,6 +101,36 @@ class Image extends React.Component {
     )
   }
 }
+
+class NetworkImage extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { error: false }
+  }
+
+  error = () => {
+    console.log("Called error")
+    this.setState({ error: true })
+  }
+
+  render() {
+    var style = {}
+    if (this.state.error) {
+      style = { display: 'none' }
+    }
+    return (
+      <img
+        src={"http://52.35.119.46:8080/" + this.props.N.externalId + ".png"}
+        onError={this.error}
+        style={Object.assign({ width: '50%', height: '60%', minWidth: 0, marginLeft: '25%' }, style)}
+      />
+    )
+
+  }
+
+}
+
 
 const ImageViz = {
   iconName: 'view_stream',

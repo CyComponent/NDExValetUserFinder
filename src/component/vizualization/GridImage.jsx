@@ -78,7 +78,7 @@ class Grid extends React.Component {
          />
        </div>
        <div style={{ overflow: 'scroll', height: '95%' }}>
-           <GridList cellHeight={650}>
+           <GridList cellHeight={610}>
            {sortedNetworks.map(N => (
               <GridTile key={N.name}>
                 <Card style={{ margin: "20px" }}>
@@ -87,10 +87,7 @@ class Grid extends React.Component {
                     subtitle={"Modified on " + N.modificationTime}
                   />
                   <CardMedia>
-                  <img
-                    src={"http://52.35.119.46:8080/" + N.externalId + ".png"}
-                    style={{ width: '50%', height: '50%', marginLeft: '25%', minWidth: 0 }}
-                  />
+                    <NetworkImage N={N}/>
                   </CardMedia>
                   <CardTitle title={N.name} subtitle={N.owner}/>
                   <CardActions>
@@ -109,6 +106,35 @@ class Grid extends React.Component {
       </div>
     )
   }
+}
+
+class NetworkImage extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { error: false }
+  }
+
+  error = () => {
+    console.log("Called error")
+    this.setState({ error: true })
+  }
+
+  render() {
+    var style = {}
+    if (this.state.error) {
+      style = { display: 'none' }
+    }
+    return (
+      <img
+        src={"http://52.35.119.46:8080/" + this.props.N.externalId + ".png"}
+        onError={this.error}
+        style={Object.assign({ width: '50%', height: '50%', marginLeft: '25%', minWidth: 0 }, style)}
+      />
+    )
+
+  }
+
 }
 
 const GridImageViz = {
