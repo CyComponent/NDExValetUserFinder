@@ -78,15 +78,20 @@ class Grid extends React.Component {
          />
        </div>
        <div style={{ overflow: 'scroll', height: '95%' }}>
-           <GridList cellHeight={350}>
+           <GridList cellHeight={650}>
            {sortedNetworks.map(N => (
               <GridTile key={N.name}>
-                <Card style={{ margin: "20"}}>
+                <Card style={{ margin: "20px" }}>
                   <CardHeader
                     title={"Created on " + N.creationTime}
                     subtitle={"Modified on " + N.modificationTime}
                   />
-                  <CardMedia/>
+                  <CardMedia>
+                  <img
+                    src={"http://52.35.119.46:8080/" + N.externalId + ".png"}
+                    style={{ width: '50%', height: '50%', marginLeft: '25%', minWidth: 0 }}
+                  />
+                  </CardMedia>
                   <CardTitle title={N.name} subtitle={N.owner}/>
                   <CardActions>
                     <RaisedButton

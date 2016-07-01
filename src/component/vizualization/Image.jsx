@@ -81,7 +81,12 @@ class Image extends React.Component {
                 title={"Created on " + N.creationTime}
                 subtitle={"Modified on " + N.modificationTime}
               />
-              <CardMedia/>
+              <CardMedia>
+                <img
+                  src={"http://52.35.119.46:8080/" + N.externalId + ".png"}
+                  style={{ width: '50%', height: '60%', minWidth: 0, marginLeft: '25%' }}
+                />
+              </CardMedia>
               <CardTitle title={N.name} subtitle={N.owner}/>
               <CardText>{N.description}</CardText>
               <CardActions>
