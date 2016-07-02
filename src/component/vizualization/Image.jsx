@@ -123,7 +123,7 @@ class NetworkImage extends React.Component {
       <img
         src={"http://52.35.119.46:8080/" + this.props.N.externalId + ".png"}
         onError={this.error}
-        style={Object.assign({ width: '50%', height: '60%', minWidth: 0, marginLeft: '25%' }, style)}
+        style={Object.assign({ width: '50%', minWidth: 0, display: 'block', margin: 'auto' }, style)}
       />
     )
 

@@ -86,8 +86,8 @@ class Table extends React.Component {
           >
             ID
           </TableHeaderColumn>
-          <TableHeaderColumn dataField="name"
-            width="400px"
+          <TableHeaderColumn
+            dataField="name"
             dataSort={true}
             columnFilter={true}
           >
@@ -121,7 +121,6 @@ class Table extends React.Component {
           </TableHeaderColumn>
           <TableHeaderColumn
             dataField="creationDate"
-            width="120px"
             dataSort={true}
             sortFunc={this.createSortFunc.bind(this)}
           >
@@ -129,7 +128,6 @@ class Table extends React.Component {
           </TableHeaderColumn>
           <TableHeaderColumn
             dataField="modificationDate"
-            width="120px"
             dataSort={true}
             sortFunc={this.modSortFunc.bind(this)}
           >

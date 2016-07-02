@@ -17,3 +17,7 @@ textarea:focus {
 img:after {
   display: none;
 }
+
+table {
+      table-layout: fixed !important;
+}
