@@ -9,6 +9,7 @@ class TextBox extends React.Component {
   render() {
     const style = {
       margin: '2%',
+      marginTop: '5%',
       marginBottom: 0,
       height: '80%',
       width: '95%',

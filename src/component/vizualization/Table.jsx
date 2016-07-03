@@ -8,6 +8,8 @@ import {
   TableHeaderColumn
 } from 'react-bootstrap-table'
 
+import RaisedButton from 'material-ui/RaisedButton'
+
 import 'react-bootstrap-table/css/react-bootstrap-table.css'
 import '../../style/react-bootstrap-table-helper'
 
@@ -53,6 +55,11 @@ class Table extends React.Component {
     }
   }
 
+  clearAll = () => {
+    this.props.cartActions.clear()
+    this.forceUpdate()
+  }
+
   render() {
     const networkSummaries = this.props.networkSummaries.toJS()
     var networks = networkSummaries.map(N => {
@@ -66,10 +73,15 @@ class Table extends React.Component {
       selected: this.getSelectedRows(),
       search: true,
       multiColumnSearch: true,
+      clickToSelect: true,
       striped: true
     }
     return (
       <div style={{ height: '95%' }}>
+        <RaisedButton
+          label="Clear all"
+          onClick={this.clearAll}
+        />
         <BootstrapTable
           data={networks}
           selectRow={selectRow}

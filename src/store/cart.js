@@ -9,7 +9,7 @@ import { Map, Set } from 'immutable'
 
 const ADD_NETWORK = "ADD_NETWORK"
 const DELETE_NETWORK = "REMOVE_NETWORK"
-const CLEAR = "CLEAR"
+const CLEAR_CART = "CLEAR_CART"
 
 const defaultState = Set()
 
@@ -19,8 +19,8 @@ export default function cyComponentState(state = defaultState, action) {
         return state.add(action.network)
       case DELETE_NETWORK:
         return state.delete(action.network)
-      case CLEAR:
-        return state.clear()
+      case CLEAR_CART:
+        return Set()
       default:
         return state
     }
@@ -38,5 +38,5 @@ export function deleteNetwork(networkSummary) {
 
 /*Clear working set*/
 export function clear() {
-  return { type: CLEAR }
+  return { type: CLEAR_CART }
 }

@@ -21,3 +21,8 @@ img:after {
 table {
       table-layout: fixed !important;
 }
+
+input[type="checkbox"] {
+   width: 25px;
+   height: 25px;
+}
