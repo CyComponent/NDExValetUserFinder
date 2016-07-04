@@ -19,14 +19,18 @@ img:after {
 }
 
 table {
-      width: auto !important;
+      table-layout: auto !important;
+      width: 100% !important;
       overflow: scroll !important;
       overflow-x: scroll !important;
 }
 
 table th {
-      width: auto !important;
-      min-width: 100% !important;
+      width: auto;
+}
+
+td {
+  min-width: 120px;
 }
 
 input[type="checkbox"] {
