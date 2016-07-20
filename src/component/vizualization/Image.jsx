@@ -121,7 +121,7 @@ class NetworkImage extends React.Component {
     }
     return (
       <img
-        src={"http://http://c-dev-serv.ucsd.edu/" + this.props.N.externalId + ".png"}
+        src={"http://ci-dev-serv.ucsd.edu/" + this.props.N.externalId + ".png"}
         onError={this.error}
         style={Object.assign({ width: '50%', minWidth: 0, display: 'block', margin: 'auto' }, style)}
       />
