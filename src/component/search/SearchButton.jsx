@@ -5,8 +5,8 @@ import RaisedButton from 'material-ui/RaisedButton'
 export default class SearchButton extends React.Component {
 
   handleSearch = () => {
-    this.props.luceneActions.searchBegin()
-    this.props.luceneActions.searchFor(
+    this.props.searchActions.searchBegin()
+    this.props.userActions.searchUsers(
       this.props.server.toJS(),
       this.props.fields.get('query')
     )

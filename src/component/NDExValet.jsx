@@ -21,7 +21,7 @@ export default class NDExValet extends React.Component {
     },
     theme: {},
     filters: [],
-    vizualizations: [],
+    visualizations: [],
     onLoad: () => {}
   }
 
@@ -47,10 +47,13 @@ export default class NDExValet extends React.Component {
               server={this.props.server}
               fieldActions={this.props.fieldActions}
               luceneActions={this.props.luceneActions}
+              userActions={this.props.userActions}
+              searchActions={this.props.searchActions}
             />
            <Result
-              vizualizations={this.props.vizualizations}
+              visualizations={this.props.visualizations}
               lucene={this.props.lucene}
+              users={this.props.users}
               cart={this.props.cart}
               cartActions={this.props.cartActions}
             />

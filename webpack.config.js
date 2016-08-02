@@ -14,10 +14,16 @@ module.exports = {
   externals: {
     "react":"React",
     "react-dom":"ReactDOM",
+    'react-addons-update': 'var React.addons.update',
     'react-addons-transition-group': 'var React.addons.TransitionGroup',
     'react-addons-pure-render-mixin': 'var React.addons.PureRenderMixin',
     'react-addons-create-fragment': 'var React.addons.createFragment',
-    'react-addons-update': 'var React.addons.update'
+    "React":"React",
+    "ReactDOM":"ReactDOM",
+    'React.addons.update': 'var React.addons.update',
+    'React.addons.TransitionGroup': 'var React.addons.TransitionGroup',
+    'React.addons.PureRenderMixin': 'var React.addons.PureRenderMixin',
+    'React.addons.createFragment': 'var React.addons.createFragment'
   },
   resolve: {
     root: __dirname,

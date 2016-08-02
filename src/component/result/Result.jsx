@@ -2,17 +2,14 @@ import React from 'react'
 
 import { Tab, Tabs } from 'material-ui/Tabs'
 
-import PluginViewer from '../plugin/PluginViewer'
-
-import TableViz from '../vizualization/Table'
-import GridImageViz from '../vizualization/GridImage'
-import ImageViz from '../vizualization/Image'
+import { PluginView } from 'cy-ui'
 
 export default class Result extends React.Component {
 
   constructor(props) {
     super(props)
-    this.vizualizations = [TableViz, GridImageViz, ImageViz].concat(this.props.vizualizations)
+    console.log(this.props.visualizations)
+    this.visualizations = [].concat(this.props.visualizations)
   }
 
   render() {
@@ -21,14 +18,17 @@ export default class Result extends React.Component {
       width: "70%",
       float: "right"
     }
+    console.log(PluginView)
+    console.log("Users is")
+    console.log(this.props.users)
     return (
       <div style={style}>
         <Tabs>
           <Tab label="Search Results">
             <div id="viz">
-              <PluginViewer
-                plugins={this.vizualizations}
-                networkSummaries={this.props.lucene.get('networkSummaries')}
+              <PluginView
+                plugins={this.visualizations}
+                users={this.props.users}
                 cart={this.props.cart}
                 cartActions={this.props.cartActions}
               />
