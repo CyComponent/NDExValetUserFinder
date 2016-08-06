@@ -18,9 +18,6 @@ export default class Result extends React.Component {
       width: "70%",
       float: "right"
     }
-    console.log(PluginView)
-    console.log("Users is")
-    console.log(this.props.users)
     return (
       <div style={style}>
         <Tabs>
@@ -29,8 +26,6 @@ export default class Result extends React.Component {
               <PluginView
                 plugins={this.visualizations}
                 users={this.props.users}
-                cart={this.props.cart}
-                cartActions={this.props.cartActions}
               />
             </div>
           </Tab>

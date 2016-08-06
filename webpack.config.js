@@ -4,12 +4,12 @@ var webpack = require('webpack');
 module.exports = {
   cache: true,
   devtool: 'source-map',
-  entry: path.resolve(__dirname, "src/NDExValet.js"),
+  entry: path.resolve(__dirname, "src/NDExUserSearch.js"),
   output: {
     path: path.resolve(__dirname, "build"),
-    library: "NDExValet",
+    library: "NDExUserSearch",
     libraryTarget: "umd",
-    filename: "NDExValet.js",
+    filename: "NDExUserSearch.js",
   },
   externals: {
     "react":"React",
