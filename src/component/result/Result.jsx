@@ -6,30 +6,21 @@ import { PluginView } from 'cy-ui'
 
 export default class Result extends React.Component {
 
-  constructor(props) {
-    super(props)
-    console.log(this.props.visualizations)
-    this.visualizations = [].concat(this.props.visualizations)
-  }
-
   render() {
     const style = {
       height: "100%",
       width: "70%",
       float: "right"
     }
+    var { visualizations, ...pluginProps } = this.props
     return (
       <div style={style}>
-        <Tabs>
-          <Tab label="Search Results">
-            <div id="viz">
-              <PluginView
-                plugins={this.visualizations}
-                users={this.props.users}
-              />
-            </div>
-          </Tab>
-        </Tabs>
+        <div id="viz">
+          <PluginView
+            plugins={visualizations}
+            {...pluginProps}
+          />
+        </div>
       </div>
     )
   }

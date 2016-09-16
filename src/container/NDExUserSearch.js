@@ -1,23 +1,23 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import NDExValet from './component/NDExUserSearch'
+import NDExSearch from '../component/NDExSearch'
 
-import './style/valet.scss'
+import { userActions } from 'ndex-store'
 
 function mapStateToProps(state) {
   return {
-    users: state.ndex.users
+    summaries: state.ndex.users
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    userActions: bindActionCreators(userActions, dispatch)
+    ndexActions: bindActionCreators(userActions, dispatch)
   }
 }
 
-export default NDExUserSearch = connect(
+export default connect(
     mapStateToProps,
     mapDispatchToProps
-  )(NDExUserSearch)
+  )(NDExSearch)
